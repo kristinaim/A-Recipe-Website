@@ -1,0 +1,4 @@
+Action application/php-cgi /~jday/MSIS-2630/A-Recipe-Website/cgi-bin/php-cgi.cgi
+<FilesMatch \.php$>
+    SetHandler application/php-cgi
+</FilesMatch>
