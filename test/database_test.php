@@ -1,8 +1,8 @@
 <?php
 include "../src/database.php";
 
-$database = Database::getInstance();
-$mysqli = $database->getConnection();
+$database = Database::get_instance();
+$mysqli = $database->get_connection();
 
 if ($mysqli->connect_error) {
   echo "Connection error: " . $mysqli->connect_error;

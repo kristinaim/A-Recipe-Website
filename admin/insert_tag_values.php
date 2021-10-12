@@ -13,6 +13,6 @@ $json_str = '[{"descr":"Meal Prep Friendly","descr_short":"MPF"},
 $json_obj = json_decode($json_str, true);
 
 foreach($json_obj as $row) {
-  echo $tag->insert($row) . "<br>";
+  $tag->insert($row, "ss") . "<br>";
 }
 ?>
