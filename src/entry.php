@@ -17,7 +17,8 @@ class Entry {
     
     if ($params != null) {
       $clause = " WHERE ";
-      $clause .= implode(array_map(function ($elem) { return $elem . "=?"; }, array_keys($params)), " AND ");
+      $clause .= implode(array_map(function ($elem) { return $elem . "=?"; },
+                         array_keys($params)), " AND ");
       $query .= $clause;
       $stmt = $this->database->get_connection()->prepare($query);
       $stmt->bind_param($types, ...array_values($params));
@@ -44,7 +45,8 @@ class Entry {
   }
 
   public function update($params, $id) {
-    $fields = implode(array_map(function ($elem) { return $elem . "=?"; }, array_keys($params)), ", ");
+    $fields = implode(array_map(function ($elem) { return $elem . "=?"; },
+                      array_keys($params)), ", ");
     $query = "UPDATE $this->table SET " . $fields . " WHERE id=?";
     return $query;
   }
