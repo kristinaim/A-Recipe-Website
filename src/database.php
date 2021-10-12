@@ -6,8 +6,7 @@ class Database {
 
 	private function __construct() {
 		$config = parse_ini_file($this::CREDS);
-		$this->conn = new mysqli($config["host"], $config["user"], 
-														 $config["pass"], $config["name"]);
+		$this->conn = new mysqli($config["host"], $config["user"], $config["pass"], $config["name"]);
 	}
 
 	// prevent duplication

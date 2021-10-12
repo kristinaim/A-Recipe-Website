@@ -24,7 +24,7 @@ class Entry {
 	// params is an associate array
 	public function insert($params) {
 		$fields = "(" . implode(array_keys($params), ",") . ")";
-	  $qmarks = "(" . implode(array_fill(0, count($params), "?"), ",") . ")";
+		$qmarks = "(" . implode(array_fill(0, count($params), "?"), ",") . ")";
 		$query = "INSERT INTO $this->table " . $fields . " VALUES " . $qmarks;
 		return $query;
 	}
