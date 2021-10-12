@@ -9,3 +9,4 @@ if ($mysqli->connect_error) {
 } else {
 	echo "Success! Connected to " . $mysqli->host_info;
 }
+?>
