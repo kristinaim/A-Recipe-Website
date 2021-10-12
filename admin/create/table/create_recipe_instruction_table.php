@@ -1,5 +1,5 @@
 <?php
-require_once "../../../src/database.php";
+require_once __DIR__."/../../../src/database.php";
 
 $query = "CREATE TABLE IF NOT EXISTS `recipe_instruction` (
 `recipe_instruction_id` int(11) NOT NULL AUTO_INCREMENT,

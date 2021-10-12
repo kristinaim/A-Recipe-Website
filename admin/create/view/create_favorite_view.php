@@ -1,5 +1,5 @@
 <?php
-require_once "../../../src/database.php";
+require_once __DIR__."/../../../src/database.php";
 
 $query = "CREATE VIEW IF NOT EXISTS `favorite_recipe_vw` AS 
 SELECT r.name 

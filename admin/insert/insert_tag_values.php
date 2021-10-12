@@ -1,5 +1,5 @@
 <?php
-require_once "../../src/tag.php";
+require_once __DIR__."/../../src/tag.php";
 
 $tag = new Tag();
 $json_str = '[{"descr":"Meal Prep Friendly","descr_short":"MPF"},

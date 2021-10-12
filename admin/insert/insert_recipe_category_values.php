@@ -1,5 +1,5 @@
 <?php
-require_once "../../src/recipe_category.php";
+require_once __DIR__."/../../src/recipe_category.php";
 
 $recipe_category = new RecipeCategory();
 $json_str = '[{"category":"Breakfast"},

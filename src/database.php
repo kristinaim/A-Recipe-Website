@@ -3,7 +3,7 @@
  * Class to define a database connection. 
  */
 class Database {
-  const CREDS = "../local/config.ini";
+  const CREDS = __DIR__."/../local/config.ini";
   private static $instance = null;
   private $conn;
 
