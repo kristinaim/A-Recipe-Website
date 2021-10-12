@@ -16,7 +16,7 @@ class Database {
   private function __clone() { }
    
   // create or return a single instance of a database
-  public static function getInstance() {
+  public static function get_instance() {
     if (!self::$instance) {
       self::$instance = new Database();
     }
@@ -25,7 +25,7 @@ class Database {
   }
 
   // return the database connection
-  public function getConnection() {
+  public function get_connection() {
     return $this->conn;
   }
 }

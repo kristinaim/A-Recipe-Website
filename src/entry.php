@@ -9,12 +9,12 @@ class Entry {
 
   public function __construct($table) {
     $this->table = $table;
-    $this->database = Database::getInstance();
+    $this->database = Database::get_instance();
   }
 
   public function select($key, $value) {
     $query = "SELECT * FROM $this->table WHERE $key=?";
-    $stmt = $this->database->getConnection()->prepare($query);
+    $stmt = $this->database->get_connection()->prepare($query);
     // TODO: different param types
     $stmt->bind_param("s", $value);
     $stmt->execute();
@@ -29,7 +29,7 @@ class Entry {
     $qmarks = "(" . implode(array_fill(0, count($params), "?"), ", ") . ")";
     $query = "INSERT INTO $this->table " . $fields . " VALUES " . $qmarks;
     /*
-    $stmt = $this->database->getConnection()->prepare($query);
+    $stmt = $this->database->get_connection()->prepare($query);
     $stmt->bind_param($types, ...array_values($params));
     $stmt->execute();
     */
@@ -44,7 +44,7 @@ class Entry {
 
   public function remove($id) {
     $query = "DELETE FROM $this->table WHERE id=?";
-    $stmt = $this->database->getConnection()->prepare($query);
+    $stmt = $this->database->get_connection()->prepare($query);
     $stmt->bind_param("i", $id);
     $stmt->execute();
     return $stmt->affected_rows;
