@@ -28,7 +28,12 @@ class Entry {
     $fields = "(" . implode(array_keys($params), ", ") . ")";
     $qmarks = "(" . implode(array_fill(0, count($params), "?"), ", ") . ")";
     $query = "INSERT INTO $this->table " . $fields . " VALUES " . $qmarks;
-    return $query;
+    /*
+    $stmt = $this->database->getConnection()->prepare($query);
+    $stmt->bind_param($types, ...array_values($params));
+    $stmt->execute();
+    */
+    return $query . ": " . implode(array_values($params), ", ");
   }
 
   public function update($params, $id) {
