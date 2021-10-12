@@ -1,5 +1,5 @@
 <?php
-require_once "../src/entry.php";
+require_once __DIR__."/../src/entry.php";
 
 $entry = new Entry("tag");
 $select = $entry->select(array("descr"=>"Keto","descr_short"=>"K"), "ss");

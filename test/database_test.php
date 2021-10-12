@@ -1,5 +1,5 @@
 <?php
-include "../src/database.php";
+include __DIR__."/../src/database.php";
 
 $database = Database::get_instance();
 $mysqli = $database->get_connection();
