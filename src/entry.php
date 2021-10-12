@@ -25,16 +25,15 @@ class Entry {
 
   // params is an associate array
   public function insert($params) {
-    $fields = "(" . implode(array_keys($params), ",") . ")";
-    $qmarks = "(" . implode(array_fill(0, count($params), "?"), ",") . ")";
+    $fields = "(" . implode(array_keys($params), ", ") . ")";
+    $qmarks = "(" . implode(array_fill(0, count($params), "?"), ", ") . ")";
     $query = "INSERT INTO $this->table " . $fields . " VALUES " . $qmarks;
     return $query;
   }
 
   public function update($params, $id) {
-    // get all keys and create string k[0]=?,k[1]=?,...k[n]=?
-    $fields = implode(array_map(function (&$item) { $item .= "=?"; }, array_keys($params)), ",");
-    $query = "UPDATE $this->table SET " . $fields;
+    $fields = implode(array_map(function ($elem) { return $elem . "=?"; }, array_keys($params)), ", ");
+    $query = "UPDATE $this->table SET " . $fields . " WHERE id=?";
     return $query;
   }
 
