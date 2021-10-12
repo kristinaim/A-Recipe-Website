@@ -19,8 +19,10 @@ $params = array(array("descr"=>"Meal Prep Friendly",
                 array(*/
 $json_obj = json_decode($json_str, true);
 
-foreach($json_obj as $key => $value) {
-  echo $key . " => " . $value . "<br>";
+foreach($json_obj as $row) {
+  foreach($row as $key => $value) {
+    echo $key . " => " . $value . "<br>";
+  }
 }
 
 ?>
