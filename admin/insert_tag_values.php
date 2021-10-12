@@ -18,5 +18,9 @@ $params = array(array("descr"=>"Meal Prep Friendly",
                       "descr_short"=>"P"),
                 array(*/
 $json_obj = json_decode($json_str, true);
-echo $json_obj;
+
+foreach($json_obj as $key => $value) {
+  echo $key . " => " . $value . "<br>";
+}
+
 ?>
