@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__."/../../../src/database.php";
+require_once __DIR__."/../../src/database.php";
 
 $query = "ALTER TABLE `user` MODIFY `password_hash` char(60);";
 
