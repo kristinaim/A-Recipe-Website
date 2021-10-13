@@ -3,7 +3,7 @@ require_once "user.php";
 
 function create_user($email, $first_name, $last_name, $password) {
   $user = new User();
-  $exists = $user->select(["email" => $email]);
+  $exists = $user->select(["email" => $email], "s");
   $json_arr = json_decode($exists, true);
   
   if (count($json_arr) > 0) {
@@ -18,8 +18,7 @@ function create_user($email, $first_name, $last_name, $password) {
     "password_hash" => password_hash($password, PASSWORD_BCRYPT)
   ];
   
-  $json_obj = json_encode($json_obj, JSON_PRETTY_PRINT);
-  $add_user = $user->insert($json_obj);
+  $add_user = $user->insert($json_obj, "ssss");
   
   if ($add_user) {
     echo "User has been added." . "<br>";
@@ -34,9 +33,9 @@ function create_user($email, $first_name, $last_name, $password) {
 
 function login($email, $password) {
   $user = new User();
-  $exists = $user->select(["email" => $email]);
+  $exists = $user->select(["email" => $email], "s");
   $json_arr = json_decode($exists, true);
   
-  return isset($json_arr[0] && password_verify($password, $json_arr[0]->password_hash);
+  return isset($json_arr[0]) && password_verify($password, $json_arr[0]->password_hash);
 }
 ?>
