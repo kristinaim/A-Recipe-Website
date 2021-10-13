@@ -41,7 +41,7 @@
       <input type="email" name="email" id="loginEmail" placeholder="Email" required>
       <input type="password" name="password" id="loginPassword" placeholder="Password" required">
       <a href="signup.php">Don't have an account?</a>
-      <input type="submit" name="submit">
+      <input type="submit" name="submit" value="Submit">
     </form>
 	</body>
 </html>
