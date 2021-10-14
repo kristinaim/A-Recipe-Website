@@ -28,7 +28,7 @@
           $_SESSION["email"] = $json_obj[0]->email;
           $_SESSION["user"] = $json_obj[0]->user_id;
           // redirect to home page
-          header("Location: " . "../src/footer.html");
+          header("Location: " . "display/favorites.php");
         } else {
           echo "Invalid email or password." . "<br>";
         }
