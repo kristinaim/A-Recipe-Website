@@ -10,7 +10,7 @@
     session_start();
     
     // verify user is logged in
-    if (!_SESSION["login"]) {
+    if (!$_SESSION["login"]) {
       header("Location: " . "../web/login.php");
     }
     

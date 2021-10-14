@@ -11,7 +11,7 @@
     session_start();
     
     // verify user is logged in
-    if (!_SESSION["login"]) {
+    if (!$_SESSION["login"]) {
       header("Location: " . "../web/login.php");
     }
     
@@ -23,7 +23,7 @@
     $select = $recipe_cat->select(["recipe_category_id" => $recipe_obj->recipe_category_id], "i");
     $recipe_cat_obj = json_decode($select)[0];
     
-    echo "Recipe ID: " . $recipe_obj->recipe-id . "<br>";
+    echo "Recipe ID: " . $recipe_obj->recipe_id . "<br>";
     echo "Name: " . $recipe_obj->name . "<br>";
     echo "Serving Size: " . $recipe_obj->serving_size . "<br>";
     echo "Category: " . $recipe_cat_obj->category . "<br>";
