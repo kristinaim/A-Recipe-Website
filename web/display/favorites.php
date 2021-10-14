@@ -19,7 +19,7 @@
     $favorites_obj = json_decode($select);
     
     foreach($favorites_obj as $favorite) {
-      $link = '<a href="recipe.php?id=' . $favorite->recipe_id . '">' . $favorite->name . '</a>';
+      $link = '<a href="recipe.php?id=' . $favorite->recipe_id . '" target="_blank">' . $favorite->name . '</a>';
       echo $link . "<br>";
     }
     ?>
