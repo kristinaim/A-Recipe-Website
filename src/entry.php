@@ -7,7 +7,7 @@ require_once "removable.php";
 /**
  * Class to define an entry in a database.
  */
-class Entry implements Selectable, Insertable, Updateable, Removable {
+class Entry implements Selectable, Insertable, Updatable, Removable {
   public $table;
   public $database;
 
@@ -37,13 +37,18 @@ class Entry implements Selectable, Insertable, Updateable, Removable {
     return json_encode($rows, JSON_PRETTY_PRINT);
   }
 
+  public function insert_id() {
+    return $this->database->get_connection()->insert_id;
+  }
+
   public function insert($params, $types) {
     $fields = "(" . implode(array_keys($params), ", ") . ")";
     $qmarks = "(" . implode(array_fill(0, count($params), "?"), ", ") . ")";
     $query = "INSERT INTO $this->table " . $fields . " VALUES " . $qmarks;
     $stmt = $this->database->get_connection()->prepare($query);
     $stmt->bind_param($types, ...array_values($params));
-    return $stmt->execute();
+    $stmt->execute();
+    return $this->insert_id();
   }
 
   public function update($params, $types) {
