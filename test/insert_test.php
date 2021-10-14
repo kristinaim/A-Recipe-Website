@@ -3,7 +3,7 @@ require_once __DIR__."/../src/recipe_category.php";
 require_once __DIR__."/../src/recipe.php";
 require_once __DIR__."/../src/ingredient.php";
 require_once __DIR__."/../src/recipe_ingredient.php";
-
+/*
 // get dessert category id
 $recipe_category = new RecipeCategory();
 $dessert = $recipe_category->select(["category" => "Dessert"], "s");
@@ -34,5 +34,19 @@ foreach($ingr_obj as $row) {
   $recipe_ingredient->insert(["recipe_id" => $recipe_id,
                               "ingredient_id" => $ingr_id,
                               "amount" => $row->amount], "iis");
+}
+/*
+// insert into recipe_instruction table
+$instructions = '[{"step":"In a small pot over medium heat, add the heavy cream, sugar, and vanilla extract."},
+                  {"step":"Meanwhile, chop the chocolate into very small pieces."},
+                  {"step":"Add the chopped chocolate to a mixing bowl along with the instant coffee and salt."},
+                  {"step":"Once the cream mixture starts to simmer, remove it from the heat and pour into the mixing bowl."},
+                  {"step":"Let sit for 1 minute, then begin whisking until glossy."},
+                  {"step":"Pour into individual serving containers and place into the fridge to thoroughly thicken, at least 3-4 hours."]';
+
+$instr_obj = json_decode($instructions);
+
+foreach($instr_obj as $idx=>$row) {
+  echo $row->step . " " . $idx . "<br>";
 }
 ?>
