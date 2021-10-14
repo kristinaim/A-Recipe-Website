@@ -2,8 +2,18 @@
 require_once __DIR__."/../../../src/database.php";
 
 $query = "CREATE VIEW `favorite_recipe_vw` AS 
-SELECT r.name 
+SELECT r.recipe_id
+, r.name
+, r.yield
+, rc.category
+, f.favorite_id
+, u.user_id
+, u.first_name
+, u.last_name
+, u.email
 FROM recipe r 
+JOIN recipe_category rc
+ON r.recipe_category_id=rc.recipe_category_id
 JOIN favorite f 
 ON r.recipe_id=f.recipe_id 
 JOIN user u 
