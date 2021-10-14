@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<?php include(__DIR__."/../src/head.html"); ?>
-		<title>Signup</title>
+		<title>Signup - A Recipe Website</title>
 	</head>
   <body>
     <?php

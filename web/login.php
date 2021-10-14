@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<?php include(__DIR__."/../src/head.html"); ?>
-		<title>Login</title>
+		<title>Login - A Recipe Website</title>
 	</head>
 	<body>
     <?php
@@ -23,10 +23,11 @@
         
         // login successful
         if ($_SESSION["login"]) {
-          $json_obj = json_decode($user->select(["email" => $_POST["email"]], "s"));
-          // track user email and id
-          $_SESSION["email"] = $json_obj[0]->email;
-          $_SESSION["user"] = $json_obj[0]->user_id;
+          $json_obj = json_decode($user->select(["email" => $_POST["email"]], "s"))[0];
+          // track user email, name, and id
+          $_SESSION["email"] = $json_obj->email;
+          $_SESSION["name"] = $json_obj->first_name;
+          $_SESSION["user"] = $json_obj->user_id;
           // redirect to home page
           header("Location: " . "display/favorites.php");
         } else {
