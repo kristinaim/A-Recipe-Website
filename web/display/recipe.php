@@ -25,7 +25,7 @@ $recipe_ingr_obj = json_decode($select);
 <html lang="en">
 	<head>
 		<?php include(__DIR__."/../../src/head.html"); ?>
-		<title>Login <?= $recipe_obj->name?></title>
+		<title>Recipe - <?= $recipe_obj->name?></title>
 	</head>
 	<body>
     <?php
