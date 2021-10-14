@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__."/../../../src/database.php";
 
-$query = "CREATE VIEW IF NOT EXISTS `favorite_recipe_vw` AS 
+$query = "CREATE VIEW `favorite_recipe_vw` AS 
 SELECT r.name 
 FROM recipe r 
 JOIN favorite f 
