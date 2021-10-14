@@ -13,9 +13,9 @@ $dessert->recipe_category_id;
 
 // insert into recipe table
 $recipe = new Recipe();
-$recipe_str = '{"name":"Pot de Crème","yield":4,"recipe_category_id":' . $dessert->recipe_category_id . '}';
+$recipe_str = '{"name":"Pot de Crème","serving_size":4,"recipe_category_id":' . $dessert->recipe_category_id . '}';
 $recipe_arr = json_decode($recipe_str, true);
-$recipe_id = $recipe->insert($recipe_arr, "ssi");
+$recipe_id = $recipe->insert($recipe_arr, "sii");
 
 // insert into ingredient table
 $ingredient = new Ingredient();

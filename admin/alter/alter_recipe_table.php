@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__."/../../src/database.php";
 
-$query = "ALTER TABLE `recipe` MODIFY `recipe_category_id` int(11)";
+//$query = "ALTER TABLE `recipe` MODIFY `recipe_category_id` int(11)";
+//$query = "ALTER TABLE `recipe` DROP COLUMN `yield`";
+$query = "ALTER TABLE `recipe` ADD COLUMN `serving_size` int(11)";
 
 $db = Database::get_instance();
 $mysqli = $db->get_connection();

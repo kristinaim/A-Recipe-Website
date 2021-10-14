@@ -4,7 +4,7 @@ require_once __DIR__."/../../../src/database.php";
 $query = "CREATE VIEW `favorite_recipe_vw` AS 
 SELECT r.recipe_id
 , r.name
-, r.yield
+, r.serving_size
 , rc.category
 , f.favorite_id
 , u.user_id
