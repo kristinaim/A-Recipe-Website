@@ -1,9 +1,13 @@
 <?php
 require_once "database.php";
+require_once "selectable.php";
+require_once "insertable.php";
+require_once "updatable.php";
+require_once "removable.php";
 /**
  * Class to define an entry in a database.
  */
-class Entry {
+class Entry implements Selectable, Insertable, Updateable, Removable {
   public $table;
   public $database;
 

@@ -1,9 +1,9 @@
 <?php
 /** @deprecated */
-require_once __DIR__."/../src/entry.php";
+require_once __DIR__."/../src/favorite.php";
 
-$entry = new Entry("fake_table");
-$insert = $entry->insert(["id" => 0, "first" => "Jake", "last" => "Day"]);
+$favorite = new Favorite();
+$insert = $favorite->insert(["user_id" => 37, "recipe_id" => ]);
 
 echo $insert;
 ?>
