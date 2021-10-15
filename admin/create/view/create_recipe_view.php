@@ -8,7 +8,7 @@ SELECT r.recipe_id
 , rc.category
 FROM recipe r 
 JOIN recipe_category rc
-ON r.recipe_id=rc.recipe_id
+ON r.recipe_category_id=rc.recipe_category_id
 ORDER BY r.name";
 
 $db = Database::get_instance();

@@ -4,7 +4,7 @@ session_start();
 
 // verify user is logged in
 if (!$_SESSION["login"]) {
-  header("Location: " . "../web/login.php");
+  header("Location: " . "../../web/login.php");
 }
 
 $fav_view = new FavoriteRecipeView();

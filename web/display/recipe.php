@@ -1,12 +1,12 @@
 <?php
-require_once(__DIR__."/../../src/reciep_view.php");
+require_once(__DIR__."/../../src/recipe_view.php");
 require_once(__DIR__."/../../src/recipe_ingredient_view.php");
 require_once(__DIR__."/../../src/recipe_instruction_view.php");
 session_start();
 
 // verify user is logged in
 if (!$_SESSION["login"]) {
-  header("Location: " . "../web/login.php");
+  header("Location: " . "../../web/login.php");
 }
 
 // get recipe and category
