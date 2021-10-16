@@ -12,10 +12,12 @@ if (!$_SESSION["login"]) {
 // get all recipes
 $recipe_vw = new RecipeView();
 $select = $recipe_vw->select();
+$recipe_obj = json_decode($select);
 
 // get random recipe
-$recipe_obj = array_rand(json_decode($select), 1);
-
+$recipe_rand = array_rand(json_decode($select), 1);
+$recipe_obj = $recipe_obj[$recipe_rand];
+  
 // get recipe ingredients
 $recipe_ingr_vw = new RecipeIngredientView();
 $select = $recipe_ingr_vw->select(["recipe_id" => $recipe_obj->recipe_id], "i");
@@ -30,7 +32,7 @@ $recipe_instr_obj = json_decode($select);
 <html lang="en">
   <head>
     <?php include(__DIR__."/../../src/header.php"); ?>
-    <title><?= Home - A Recipe Website?></title>
+    <title>Home - A Recipe Website</title>
   </head>
   <body>
     <?php
