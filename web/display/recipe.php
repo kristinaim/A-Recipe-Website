@@ -12,6 +12,12 @@ if (!$_SESSION["login"]) {
 // get recipe and category
 $recipe_vw = new RecipeView();
 $select = $recipe_vw->select(["recipe_id" => $_GET["id"]], "i");
+// check for non-existent recipe
+if (!$select) {
+  // TODO: create page for error redirect
+  echo "Invalid recipe ID!" . "<br>";
+  return;
+}
 $recipe_obj = json_decode($select)[0];
 
 // get recipe ingredients

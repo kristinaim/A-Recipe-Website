@@ -31,7 +31,7 @@ class View implements Selectable {
     $result = $stmt->get_result();
     $rows = $result->fetch_all(MYSQLI_ASSOC);
 
-    return json_encode($rows, JSON_PRETTY_PRINT);
+    return empty($rows) ? null : json_encode($rows, JSON_PRETTY_PRINT);
   }
 }
 ?>

@@ -33,8 +33,8 @@ class Entry implements Selectable, Insertable, Updatable, Removable {
     $stmt->execute();
     $result = $stmt->get_result();
     $rows = $result->fetch_all(MYSQLI_ASSOC);
-
-    return json_encode($rows, JSON_PRETTY_PRINT);
+    
+    return empty($rows) ? null : json_encode($rows, JSON_PRETTY_PRINT);
   }
 
   public function insert_id() {
