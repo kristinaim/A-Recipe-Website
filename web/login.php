@@ -29,7 +29,7 @@
           $_SESSION["name"] = $json_obj->first_name;
           $_SESSION["user"] = $json_obj->user_id;
           // redirect to home page
-          header("Location: " . "display/favorites.php");
+          header("Location: " . "display/home.php");
         } else {
           echo "Invalid email or password." . "<br>";
         }

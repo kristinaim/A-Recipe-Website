@@ -32,7 +32,7 @@
       $_SESSION["email"] = $json_obj[0]->email;
       $_SESSION["user"] = $json_obj[0]->user_id;
       // redirect to home page
-      header("Location: " . "display/favorites.php");
+      header("Location: " . "display/home.php");
     }
     ?>
     <form method="POST" action="signup.php">
