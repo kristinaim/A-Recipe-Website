@@ -30,7 +30,7 @@ $recipe_instr_obj = json_decode($select);
 <html lang="en">
   <head>
     <?php include(__DIR__."/../../src/header.php"); ?>
-    <title><?= Home - A Recipe Website</title>
+    <title><?= Home - A Recipe Website?></title>
   </head>
   <body>
     <?php
