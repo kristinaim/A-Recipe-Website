@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<?php include(__DIR__."/../src/head.html"); ?>
-		<title>Login - A Recipe Website</title>
-	</head>
-	<body>
+  <head>
+    <?php include(__DIR__."/../src/head.html"); ?>
+    <title>Login - A Recipe Website</title>
+  </head>
+  <body>
     <?php
     require_once(__DIR__."/../src/login.php");
     require_once(__DIR__."/../src/user.php");
@@ -24,7 +24,7 @@
         // login successful
         if ($_SESSION["login"]) {
           $json_obj = json_decode($user->select(["email" => $_POST["email"]], "s"))[0];
-          // track user email, name, and id
+          // track user info
           $_SESSION["email"] = $json_obj->email;
           $_SESSION["name"] = $json_obj->first_name;
           $_SESSION["user"] = $json_obj->user_id;
@@ -44,5 +44,5 @@
       <a href="signup.php">Don't have an account?</a>
       <input type="submit" name="submit" value="Submit">
     </form>
-	</body>
+  </body>
 </html>

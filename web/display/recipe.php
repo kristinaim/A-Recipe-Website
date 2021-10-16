@@ -26,11 +26,11 @@ $recipe_instr_obj = json_decode($select);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<?php include(__DIR__."/../../src/head.html"); ?>
-		<title><?= $recipe_obj->name?> - A Recipe Website</title>
-	</head>
-	<body>
+  <head>
+    <?php include(__DIR__."/../../src/head.html"); ?>
+    <title><?= $recipe_obj->name?> - A Recipe Website</title>
+  </head>
+  <body>
     <?php
     echo "Recipe ID: " . $recipe_obj->recipe_id . "<br>";
     echo "Name: " . $recipe_obj->name . "<br>";
@@ -47,5 +47,5 @@ $recipe_instr_obj = json_decode($select);
       echo $instr->step_index+1 . "). " . $instr->step . "<br>";
     }
     ?>
-	</body>
+  </body>
 </html>

@@ -13,17 +13,16 @@ $favorites_obj = json_decode($select);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<?php include(__DIR__."/../../src/head.html"); ?>
-		<title><?=$_SESSION["name"]?>'s Favorites - A Recipe Website</title>
-	</head>
-	<body>
-
+  <head>
+    <?php include(__DIR__."/../../src/head.html"); ?>
+    <title><?=$_SESSION["name"]?>'s Favorites - A Recipe Website</title>
+  </head>
+  <body>
     <?php
     foreach($favorites_obj as $favorite) {
       $link = '<a href="recipe.php?id=' . $favorite->recipe_id . '" target="_blank">' . $favorite->name . '</a>';
       echo $link . "<br>";
     }
     ?>
-	</body>
+  </body>
 </html>
