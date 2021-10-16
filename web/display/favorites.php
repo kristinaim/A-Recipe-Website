@@ -10,6 +10,10 @@ if (!$_SESSION["login"]) {
 $fav_view = new FavoriteRecipeView();
 $select = $fav_view->select(["user_id" => $_SESSION["user"]], "i");
 $favorites_obj = json_decode($select);
+if (!$favorites_obj) {
+  echo "You don't have any favorited recipes!" . "<br>";
+  return; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
