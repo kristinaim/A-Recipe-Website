@@ -10,5 +10,5 @@ if (ini_get("session.use_cookies")) {
 }
 
 session_destroy();
-header("Location: " . __DIR__."/../web/login.php");
+header("Location: " . "../web/login.php");
 ?>

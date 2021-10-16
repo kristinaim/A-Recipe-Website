@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php include(__DIR__."/../src/head.html"); ?>
-    <title>Login - A Recipe Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <title>Log In - A Recipe Website</title>
   </head>
   <body>
     <?php
@@ -29,7 +33,7 @@
           $_SESSION["name"] = $json_obj->first_name;
           $_SESSION["user"] = $json_obj->user_id;
           // redirect to home page
-          header("Location: " . "display/home.php");
+          header("Location: " . "./display/home.php");
         } else {
           echo "Invalid email or password." . "<br>";
         }
@@ -44,5 +48,4 @@
       <a href="signup.php">Don't have an account?</a>
       <input type="submit" name="submit" value="Submit">
     </form>
-  </body>
-</html>
+<?php require_once(__DIR__."/../src/footer.php");
