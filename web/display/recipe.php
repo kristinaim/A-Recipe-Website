@@ -35,6 +35,7 @@ $title = $recipe_obj->name."'s Favorites - A Recipe Website";
 $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
 echo $buffer;
 
+/*
 // get recipe ingredients
 $recipe_ingr_vw = new RecipeIngredientView();
 $select = $recipe_ingr_vw->select(["recipe_id" => $recipe_obj->recipe_id], "i");
@@ -59,6 +60,9 @@ echo "Instructions:" . "<br>";
 foreach($recipe_instr_obj as $instr) {
   echo $instr->step_index+1 . "). " . $instr->step . "<br>";
 }
+*/
+
+$recipe_vw->display($recipe_obj->recipe_id);
 
 // footer
 require_once DIR_SRC."footer.php";

@@ -1,10 +1,11 @@
 <?php
-require_once "database.php";
-require_once "selectable.php";
+require_once __DIR__."/../../root.php";
+require_once DIR_SRC."database.php";
+require_once DIR_SRC."selectable.php";
 /**
  * Class to define a view in a database.
  */
-class View implements Selectable {
+abstract class View implements Selectable {
   public $view;
   public $database;
 
@@ -33,5 +34,7 @@ class View implements Selectable {
 
     return empty($rows) ? null : json_encode($rows, JSON_PRETTY_PRINT);
   }
+  
+  abstract public function display($id);
 }
 ?>
