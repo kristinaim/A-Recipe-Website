@@ -5,8 +5,8 @@ require_once DIR_SRC."recipe_ingredient_view.php";
 require_once DIR_SRC."recipe_instruction_view.php";
 
 class RecipeView extends View {
-  public function __construct() {
-    parent::__construct("recipe_vw");
+  public function __construct($view="recipe_vw") {
+    parent::__construct($view);
   }
   
   public function display($id) {

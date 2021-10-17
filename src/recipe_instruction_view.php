@@ -8,7 +8,7 @@ class RecipeInstructionView extends View {
   }
   
   public function display($id) {
-    $select = $this->select(["recipe_id" => $recipe_obj->recipe_id], "i");
+    $select = $this->select(["recipe_id" => $id], "i");
     $recipe_instr_obj = json_decode($select);
 
     foreach($recipe_instr_obj as $instr) {

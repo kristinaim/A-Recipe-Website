@@ -2,23 +2,21 @@
 require_once __DIR__."/../../../src/database.php";
 
 $query = "CREATE VIEW `favorite_recipe_vw` AS 
-SELECT r.recipe_id
-, r.name
-, r.serving_size
-, rc.category
+SELECT rv.recipe_id
+, rv.name
+, rv.serving_size
+, rv.category
 , f.favorite_id
 , u.user_id
 , u.first_name
 , u.last_name
 , u.email
-FROM recipe r 
-JOIN recipe_category rc
-ON r.recipe_category_id=rc.recipe_category_id
+FROM recipe_vw rv 
 JOIN favorite f 
-ON r.recipe_id=f.recipe_id 
+ON rv.recipe_id=f.recipe_id 
 JOIN user u 
 ON u.user_id=f.user_id 
-ORDER BY r.name";
+ORDER BY rv.name";
 
 $db = Database::get_instance();
 $mysqli = $db->get_connection();
