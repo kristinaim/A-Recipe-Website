@@ -1,3 +1,4 @@
+<?php require_once(__DIR__."/../root.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,8 +11,8 @@
   </head>
   <body>
     <?php
-    require_once(__DIR__."/../src/login.php");
-    require_once(__DIR__."/../src/user.php");
+    require_once(DIR_SRC."login.php");
+    require_once(DIR_SRC."user.php");
     
     ini_set("session.gc.maxlifetime", 3600); // keep session data for 1 hour
     session_set_cookie_params(3600); // clients remember session id for 1 hour
@@ -30,13 +31,14 @@
       if (!create_user($_POST["email"], $_POST["firstName"], $_POST["lastName"], $_POST["password"])) {
         return;
       }
-      $json_obj = json_decode($user->select(["email" => $_POST["email"]], "s"));
-      // track user email and id
+      $json_obj = json_decode($user->select(["email" => $_POST["email"]], "s"))[0];
+      // track user info
       $_SESSION["login"] = login($_POST["email"], $_POST["password"]);
-      $_SESSION["email"] = $json_obj[0]->email;
-      $_SESSION["user"] = $json_obj[0]->user_id;
+      $_SESSION["email"] = $json_obj->email;
+      $_SESSION["name"] = $json_obj->name;
+      $_SESSION["user"] = $json_obj->user_id;
       // redirect to home page
-      header("Location: " . "./display/home.php");
+      header("Location: " . "<?=LINK_WEB?>display/home.php");
     }
     ?>
     <form method="POST" action="signup.php">
@@ -47,4 +49,4 @@
       <input type="password" name="confirmPassword" placeholder="Confirm password" required>
       <input type="submit" name="submit" value="Submit">
     </form>
-<?php require_once(__DIR__."/../src/footer.php");
+<?php require_once(DIR_SRC."footer.php");

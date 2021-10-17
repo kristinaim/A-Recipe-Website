@@ -13,19 +13,19 @@
   <header>
     <ul class="nav">
       <li>
-        <a href=<?=DIR_WEB?>"display/home.php">Home</a>
+        <a href="<?=DIR_WEB?>display/home.php">Home</a>
       </li>
       <li>
-        <a href=<?=DIR_WEB?>"display/Recipes.php">Recipes</a>
+        <a href="<?=DIR_WEB?>display/Recipes.php">Recipes</a>
       </li>
       <li>
-        <a href=<?=DIR_WEB?>"display/favorites.php">Favorites</a>
+        <a href="<?=DIR_WEB?>display/favorites.php">Favorites</a>
       </li>
       <li>
-        <a href=<?=DIR_WEB?>"display/submission.php">Add a Recipe</a>
+        <a href="<?=DIR_WEB?>display/submission.php">Add a Recipe</a>
       </li>
       <li>
-        <a href=<?=DIR_WEB?>"logout.php">Logout</a>
+        <a href="<?=DIR_WEB?>logout.php">Logout</a>
       </li>
     </ul>
   </header>
