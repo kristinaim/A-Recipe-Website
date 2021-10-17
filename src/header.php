@@ -11,21 +11,27 @@
 </head>
 <body>
   <header>
-    <ul class="nav">
-      <li>
-        <a href="<?=LINK_WEB?>display/home.php">Home</a>
-      </li>
-      <li>
-        <a href="<?=LINK_WEB?>display/recipes.php">Recipes</a>
-      </li>
-      <li>
-        <a href="<?=LINK_WEB?>display/favorites.php">Favorites</a>
-      </li>
-      <li>
-        <a href="<?=LINK_WEB?>display/submission.php">Add a Recipe</a>
-      </li>
-      <li>
-        <a href="<?=LINK_WEB?>logout.php">Logout</a>
-      </li>
-    </ul>
+    <div class="img">
+    </div>
+    <div class="head">
+      <ul id="head_list">
+        <li>
+          <a href="<?=LINK_WEB?>display/home.php">
+            <img src="<?=LINK_IMG?>homemade.png" id="homemade"/>
+          </a>
+        </li>
+        <li>
+          <a href="<?=LINK_WEB?>display/recipes.php">Recipes</a>
+        </li>
+        <li>
+          <a href="<?=LINK_WEB?>display/favorites.php">Favorites</a>
+        </li>
+        <li>
+          <a href="<?=LINK_WEB?>display/submission.php">Add a Recipe</a>
+        </li>
+        <li>
+          <a href="<?=LINK_WEB?>logout.php">Logout</a>
+        </li>
+      </ul>
+    </div>
   </header>

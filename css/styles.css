@@ -144,22 +144,22 @@ div.preparation {
 	font-size: 16px;
 }
 
-a:link {
+header a:link {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-a:visited {
+header a:visited {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-a:active {
+header a:active {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-a:hover {
+header a:hover {
   	color: #ffffff;
   	text-decoration: none;
 }
