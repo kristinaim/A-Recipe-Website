@@ -1,5 +1,6 @@
 <?php
-include __DIR__."/../src/database.php";
+require_once __DIR__."/../root.php";
+require_once DIR_SRC."database.php";
 
 $database = Database::get_instance();
 $mysqli = $database->get_connection();

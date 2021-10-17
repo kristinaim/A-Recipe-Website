@@ -1,4 +1,4 @@
-<?php require_once("root.php"); ?>
+<?php require_once "root.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

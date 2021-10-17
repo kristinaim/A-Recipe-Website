@@ -1,9 +1,10 @@
 <?php
-require_once __DIR__."/../src/recipe_category.php";
-require_once __DIR__."/../src/recipe.php";
-require_once __DIR__."/../src/ingredient.php";
-require_once __DIR__."/../src/recipe_ingredient.php";
-require_once __DIR__."/../src/recipe_instruction.php";
+require_once __DIR__."/../root.php";
+require_once DIR_SRC."recipe_category.php";
+require_once DIR_SRC."recipe.php";
+require_once DIR_SRC."ingredient.php";
+require_once DIR_SRC."recipe_ingredient.php";
+require_once DIR_SRC."recipe_instruction.php";
 
 // get dessert category id
 $recipe_category = new RecipeCategory();

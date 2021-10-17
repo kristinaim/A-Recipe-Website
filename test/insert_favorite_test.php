@@ -1,7 +1,8 @@
 <?php
-require_once __DIR__."/../src/favorite.php";
-require_once __DIR__."/../src/user.php";
-require_once __DIR__."/../src/recipe.php";
+require_once __DIR__."/../root.php";
+require_once DIR_SRC."favorite.php";
+require_once DIR_SRC."user.php";
+require_once DIR_SRC."recipe.php";
 
 // get user
 $user = new User();

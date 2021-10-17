@@ -1,6 +1,6 @@
 <?php
-/** @deprecated */
-require_once __DIR__."/../src/login.php";
+require_once __DIR__."/../root.php";
+require_once DIR_SRC."login.php";
 
 $logged_in = login("gsnail@scu.edu", "hunter2");
 

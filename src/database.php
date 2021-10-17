@@ -1,10 +1,10 @@
 <?php
-require_once(__DIR__."/../root.php");
+require_once __DIR__."/../root.php";
 /**
  * Class to define a database connection. 
  */
 class Database {
-  const CREDS = DIR_LOC . "config.ini";
+  const CREDS = DIR_LOC."config.ini";
   private static $instance = null;
   private $conn;
 

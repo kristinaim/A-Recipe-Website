@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__."/../root.php";
+
 session_start();
 $_SESSION = array(); // unset all session variables
 
@@ -10,5 +12,5 @@ if (ini_get("session.use_cookies")) {
 }
 
 session_destroy();
-header("Location: " . "../web/login.php");
+header("Location: ".LINK_WEB."login.php");
 ?>
