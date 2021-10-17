@@ -16,7 +16,7 @@
         <a href="<?=LINK_WEB?>display/home.php">Home</a>
       </li>
       <li>
-        <a href="<?=LINK_WEB?>display/Recipes.php">Recipes</a>
+        <a href="<?=LINK_WEB?>display/recipes.php">Recipes</a>
       </li>
       <li>
         <a href="<?=LINK_WEB?>display/favorites.php">Favorites</a>
@@ -25,7 +25,7 @@
         <a href="<?=LINK_WEB?>display/submission.php">Add a Recipe</a>
       </li>
       <li>
-        <a href="<?=LINK_WEB?>logout.php">Logout</a>
+        <a href="<?=LINK_SRC?>logout.php">Logout</a>
       </li>
     </ul>
   </header>

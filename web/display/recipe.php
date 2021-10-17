@@ -1,17 +1,17 @@
 <?php
 // constants
-require_once __DIR__."/../root.php";
-
-// verify user is logged in
-if (!isset($_SESSION["login"])) {
-  header("Location: ".LINK_WEB."login.php");
-}
+require_once __DIR__."/../../root.php";
 
 // requirements
 require_once DIR_SRC."recipe_view.php";
 require_once DIR_SRC."recipe_ingredient_view.php";
 require_once DIR_SRC."recipe_instruction_view.php";
 session_start();
+
+// verify user is logged in
+if (!isset($_SESSION["login"])) {
+  header("Location: ".LINK_WEB."login.php");
+}
 
 // get recipe and category
 $recipe_vw = new RecipeView();

@@ -1,6 +1,10 @@
 <?php
 // constants
-require_once __DIR__."/../root.php";
+require_once __DIR__."/../../root.php";
+
+// requirements
+require_once DIR_SRC."favorite_recipe_view.php";
+session_start();
 
 // verify user is logged in
 if (!isset($_SESSION["login"])) {
@@ -15,10 +19,6 @@ ob_end_clean();
 $title = $_SESSION["name"]."'s Favorites - A Recipe Website";
 $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
 echo $buffer;
-
-// requirements
-require_once DIR_SRC."favorite_recipe_view.php";
-session_start();
 
 // select favorites
 $fav_view = new FavoriteRecipeView();

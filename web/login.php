@@ -19,7 +19,7 @@
     session_start();
     session_regenerate_id(true);
     
-    // redirect if already logged in
+    // redirect if already logged in 
     if (isset($_SESSION["login"])) {
       header("Location: ".LINK_WEB."display/home.php");
     }

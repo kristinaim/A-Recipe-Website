@@ -1,6 +1,12 @@
 <?php
 // constants
-require_once __DIR__."/../root.php";
+require_once __DIR__."/../../root.php";
+
+// requirements
+require_once DIR_SRC."recipe_view.php";
+require_once DIR_SRC."recipe_ingredient_view.php";
+require_once DIR_SRC."recipe_instruction_view.php";
+session_start();
 
 // verify user is logged in
 if (!isset($_SESSION["login"])) {
@@ -15,12 +21,6 @@ ob_end_clean();
 $title = "Home - A Recipe Website";
 $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
 echo $buffer;
-
-// requirements
-require_once DIR_SRC."recipe_view.php";
-require_once DIR_SRC."recipe_ingredient_view.php";
-require_once DIR_SRC."recipe_instruction_view.php";
-session_start();
 
 // get all recipes
 $recipe_vw = new RecipeView();
