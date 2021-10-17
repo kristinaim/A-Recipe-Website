@@ -1,10 +1,11 @@
 <?php
-require_once "recipe.php";
-require_once "recipe_category.php";
-require_once "tag.php";
-require_once "ingredient.php";
-require_once "recipe_ingredient.php";
-require_once "recipe_instruction.php";
+require_once __DIR__."/../root.php";
+require_once DIR_SRC."recipe.php";
+require_once DIR_SRC."recipe_category.php";
+require_once DIR_SRC."tag.php";
+require_once DIR_SRC."ingredient.php";
+require_once DIR_SRC."recipe_ingredient.php";
+require_once DIR_SRC."recipe_instruction.php";
 
 // get recipe categories as HTML option elements
 function get_category_options() {
@@ -14,7 +15,7 @@ function get_category_options() {
   $html = "";
   
   foreach($categories as $cat) {
-    $html .= '<option value="'.$cat->recipe_category_id.'">'.$cat->category.'</option>\n';
+    $html .= '<option value="'.$cat->recipe_category_id.'">'.$cat->category.'</option>';
   }
 
   return $html;
@@ -28,12 +29,13 @@ function get_tag_options() {
   $html = "";
   
   foreach($tags as $t) {
-    $html .= '<option value="'.$t->tag_id.'">'.$t->descr_short.'</option>\n';
+    $html .= '<option value="'.$t->tag_id.'">'.$t->descr_short.'</option>';
   }
 
   return $html;
 }
 
+/*
 // get recipe category id
 $recipe_category = new RecipeCategory();
 $dessert = $recipe_category->select(["category" => "Dessert"], "s");
@@ -80,4 +82,5 @@ $instr_obj = json_decode($instructions);
 foreach($instr_obj as $idx=>$row) {
   $recipe_instruction->insert(["recipe_id" => $recipe_id, "step" => $row->step, "step_index" => $idx], "isi");
 }
+ */
 ?>
