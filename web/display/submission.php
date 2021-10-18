@@ -4,10 +4,6 @@ require_once __DIR__."/../../root.php";
 
 // requirements
 require_once DIR_SRC."submission.php";
-require_once DIR_SRC."recipe.php";
-require_once DIR_SRC."recipe_tag.php";
-require_once DIR_SRC."recipe_ingredient.php";
-require_once DIR_SRC."recipe_instruction.php";
 session_start();
 
 // verify user is logged in
@@ -24,8 +20,11 @@ $title = "Submission - A Recipe Website";
 $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
 echo $buffer;
 echo PHP_VERSION;
+
 // when user clicks submit button
 if (isset($_POST["submit"])) {
+  submit_recipe();
+  /*
   // insert into recipe table
   $recipe_name = $_POST["recipeName"];
   $serving_size = $_POST["servingSize"];
@@ -56,7 +55,6 @@ if (isset($_POST["submit"])) {
   $ingr_match = '(?P<ingredient>\w+((\s|-)?\w)*)';
   $re = '/^'.$qty_match.'\s?'.$unit_match.'\s?'.$ingr_match.'$/mi';
   #$re = '/(?P<quantity>\d+(\.|\/)?\d*)\s?(?P<unit>(oz|cup|tsp|g)*)\s?(?P<ingredient>\w+((\s|-)?\w)*)/';
-  
   // ingredient: rest of string after space
   $ingredients = $_POST["ingredients"];
   foreach ($ingredients as $ingr) {
@@ -75,7 +73,7 @@ if (isset($_POST["submit"])) {
   echo "</br>ingredients:";
   print_r($ingredients);
   echo "</br>instructions:";
-  print_r($instructions);
+  print_r($instructions);*/
 }
 ?>
 <div class="recipe_sub_container">

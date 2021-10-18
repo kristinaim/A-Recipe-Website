@@ -35,13 +35,42 @@ function get_tag_options() {
   return $html;
 }
 
-// TODO: add functionality to split ingredient entries into their amounts and actual ingredients
-
-// TODO: move 
-if (isset($_POST["submit"])) {
-  echo $_POST["recipeName"].' is for you and me';
+// prerequisite: form submit button is pressed
+function submit_recipe() {
+  // insert into recipe table
+  $recipe = new Recipe();
+  $recipe_str = '{"name":"'.$_POST["recipeName"].'",
+                  "serving_size":"'.$_POST["servingSize"].'",
+                  "recipe_category_id":"'.$_POST["category"].'"}';
+  $recipe_arr = json_decode($recipe_str, true);
+  print_r($recipe_arr);
+  #$recipe_id = $recipe->insert($recipe_arr, "sii");
+  
+  // insert into recipe tag table
+  // optional field so check if set
+  if (isset($_POST["tag"])) {
+    $recipe_tag = new RecipeTag();
+    foreach ($_POST["tag"] as $tag_id) {
+      $recipe_tag_str = '{"recipe_id":"'.$recipe_id.'",
+                          "tag_id":"'.$tag_id.'"}';
+      $recipe_tag_arr = json_decode($recipe_tag_str, true);
+      print_r($recipe_tag_arr);
+    }
+  }
+  
+  // insert into ingredient and recipe ingredient table
+  foreach ($_POST["ingredients"] as $ingr) {
+    preg_match(INGR_REGEX, $ingr, $matches);
+    echo 'quantity: '.$matches["quantity"]."<br>";
+    echo 'unit: '.$matches["unit"]."<br>";
+    echo 'ingredient: '.$matches["ingredient"]."<br>";
+  }
+  
+  // insert into recipe instruction table
+  foreach ($_POST["instructions"] as $instr) {
+    echo $instr."<br>";
+  }
 }
-
 /*
 // get recipe category id
 $recipe_category = new RecipeCategory();
