@@ -29,11 +29,16 @@ if (isset($_POST["submit"])) {
   // insert into recipe_instruction table
 }
 ?>
-<h1>Add a Recipe</h1>
-<form method="POST" action="submission.php">
-  <label for="recipeName">Recipe Name</label>
-  <input type="text" name="recipeName" placeholder="Pasta Primavera" required>
-  <label for="servingSize">Serving Size</label>
+<div class="recipe_sub_container">
+  <p id="recipe_sub_form">Recipe Submission Form</p>
+  <form method="POST" action="submission.php">
+    <ul class="form-wrapper">
+      <li class="form-row">  
+        <label for="recipeName">Recipe Name</label>
+        <input type="text" id="recipeName" name="recipeName" placeholder="Pasta Primavera" required>
+      </li>
+      <li class="form-row"  
+<label for="servingSize">Serving Size</label>
   <input type="range" name="servingSize" min="1" max="16" value="4" onInput="this.nextElementSibling.value = this.value" required>
   <output>4</output>
   <label for="category">Category</label>
