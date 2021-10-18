@@ -37,18 +37,43 @@ if (isset($_POST["submit"])) {
         <label for="recipeName">Recipe Name</label>
         <input type="text" id="recipeName" name="recipeName" placeholder="Pasta Primavera" required>
       </li>
-      <li class="form-row"  
-<label for="servingSize">Serving Size</label>
-  <input type="range" name="servingSize" min="1" max="16" value="4" onInput="this.nextElementSibling.value = this.value" required>
-  <output>4</output>
-  <label for="category">Category</label>
-  <select name="category" required><?=get_category_options()?></select>
-  <label for="tag">Tags</label>
-  <select name="tag" multiple required><?=get_tag_options()?></select>
-  <label for=ingredients">Ingredients</label>
-  <input type="text" name="ingredients" placeholder="16 oz penne pasta" required>
-  <label for="instructions">Instructions</label>
-  <input type="text" name="instructions" placeholder="In a medium pot over high heat, bring salted water to a boil..." required>
-  <input type="submit" name="submit" value="Submit">
-</form>
+      <li class="form-row">
+        <label for="servingSize">Serving Size</label>
+        <input type="range" name="servingSize" min="1" max="16" value="4" onInput="this.nextElementSibling.value = this.value" required>
+        <output>4</output>
+      </li>
+      <li class="form-row">
+        <label for="category">Category</label>
+        <select name="category" required><?=get_category_options()?></select>
+      </li>
+      <li class="form-row">
+        <label for="tag">Tags</label>
+        <select name="tag" multiple required><?=get_tag_options()?></select>
+      </li>
+      <li class="form-row">
+        <label for="ingredients">Ingredients</label>
+        <input type="text" name="ingredients[]" placeholder="16 oz penne pasta" required>
+        <button id="addIngredient" onclick="insertBefore(addIngredient, ingredients[])">+</button>
+      </li>
+      <li class="form-row">
+        <label for="instructions">Instructions</label>
+        <input type="text" name="instructions[]" placeholder="In a medium pot over high heat, bring salted water to a boil..." required>
+        <button id="addInstruction" onclick="insertBefore(addInstruction, instructions[])">+</button>
+      </li>
+      <li class="form-row">
+        <input type="submit" name="submit" value="Submit">
+      </li>
+    </ul>
+  </form>
+</div>
+<script>
+function insertBefore(btnId, name) {
+  const btn = document.getElementById(btnId);
+  const input = document.createElement("input");
+  input.setAttribute("type", "text");
+  input.setAttribute("name". name);
+  input.required = true;
+  btn.parentNode.insertBefore(input, btn);
+}
+</script>
 <?php require_once DIR_SRC."footer.php"; ?>

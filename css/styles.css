@@ -42,6 +42,13 @@ li {
 	padding: 10px;
 }
 
+li.recipe {
+	display: block;
+	font-family: Avenir;
+	padding-left: 110px;
+	padding-top: 10px;
+}
+
 header {
 	background-color: black;
 	height: 65px;
@@ -144,22 +151,50 @@ div.preparation {
 	font-size: 16px;
 }
 
-header a:link {
+#my_account {
+	padding-top: 90px;
+	padding-left: 100px;
+	font-family: Avenir;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#contact {
+	padding-left: 110px;
+	font-family: Avenir;
+}
+
+#my_fav_recipes {
+	padding-top: 50px;
+	padding-left: 100px;
+	font-family: Avenir;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+hr {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	width: 90%;
+}
+
+a:link {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-header a:visited {
+a:visited {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-header a:active {
+a:active {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-header a:hover {
+a:hover {
   	color: #ffffff;
   	text-decoration: none;
 }
@@ -256,4 +291,54 @@ label#cat_form {
 input[type = text] {
 	width: 100%;
 	margin: -5px 15px 10px;
+}
+
+p#signin {
+	font-family: Avenir;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 100px;
+}
+
+.rectangle {
+	height: 300px;
+	width: 450px;
+	background-color: #ededed;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#id {
+	margin-top: 5px;
+	width: 350px;
+	height: 30px;
+	margin-left: 10%;
+}
+
+#signID {
+	font-family: Avenir;
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 25px;
+	margin-left: 10%;
+}
+
+#signinfo {
+	font-family: Avenir;
+	font-size: 13px;
+	text-align: center;
+}
+
+button {
+	width: 80%;
+  	height: 40px;
+  	padding: 10px;
+  	margin: 20px;
+  	background-color: #BEBEBE;
+  	color: #FFFFFF;
+  	display: block;
+  	margin-left: auto;
+	margin-right: auto;
 }
