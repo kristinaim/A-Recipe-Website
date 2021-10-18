@@ -29,7 +29,18 @@ if (isset($_POST["submit"])) {
   // insert into recipe tag table
   $tag = $_POST["tag"];
   // insert into ingredient table
+  // valid ingredient has the following format:
+  // <quantity>\s?<unit>? <ingredient>
+  // quantity: decimal, whole number, or fraction
+  // unit:
+  $re = '/(?P<quantity>\d+(\.|\/)?\d*)\s?(?P<unit>(oz|cup|tsp|g)*)\s?(?P<ingredient>\w+((\s|-)?\w)*)/';
+  
+  // ingredient: rest of string after space
   $ingredients = $_POST["ingredients"];
+  foreach ($ingredients as $ingr) {
+    preg_match($re, $ingr, $matches);
+    print_r($matches);
+  }
   // insert into recipe_ingredient table
   $instructions = $_POST["instructions"];
   // insert into recipe_instruction table
