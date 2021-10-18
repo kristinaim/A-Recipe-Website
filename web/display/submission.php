@@ -23,7 +23,7 @@ ob_end_clean();
 $title = "Submission - A Recipe Website";
 $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
 echo $buffer;
-
+echo PHP_VERSION;
 // when user clicks submit button
 if (isset($_POST["submit"])) {
   // insert into recipe table
@@ -32,7 +32,12 @@ if (isset($_POST["submit"])) {
   $category = $_POST["category"];
   
   // insert into recipe tag table
-  $tags = $_POST["tag"];
+  // optional so check if set
+  if (isset($_POST["tag"])) {
+    foreach ($_POST["tag"] as $tag) {
+      echo $tag;
+    }
+  }
   
   // insert into ingredient table
   // valid ingredient has the following format:
