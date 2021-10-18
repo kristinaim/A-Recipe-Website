@@ -4,6 +4,10 @@ require_once __DIR__."/../../root.php";
 
 // requirements
 require_once DIR_SRC."submission.php";
+require_once DIR_SRC."recipe.php";
+require_once DIR_SRC."recipe_tag.php";
+require_once DIR_SRC."recipe_ingredient.php";
+require_once DIR_SRC."recipe_instruction.php";
 session_start();
 
 // verify user is logged in
@@ -26,20 +30,35 @@ if (isset($_POST["submit"])) {
   $recipe_name = $_POST["recipeName"];
   $serving_size = $_POST["servingSize"];
   $category = $_POST["category"];
+  
   // insert into recipe tag table
-  $tag = $_POST["tag"];
+  $tags = $_POST["tag"];
+  
   // insert into ingredient table
   // valid ingredient has the following format:
   // <quantity>\s?<unit>? <ingredient>
   // quantity: decimal, whole number, or fraction
   // unit:
-  $re = '/(?P<quantity>\d+(\.|\/)?\d*)\s?(?P<unit>(oz|cup|tsp|g)*)\s?(?P<ingredient>\w+((\s|-)?\w)*)/';
+  $qty_match = '(?P<quantity>\d+(\.|\/)?\d*)';
+  
+  $units_mass_metric = ['mg', 'milligram[s]?', 'g(ram[s]?)?', 'kg', 'kilogram[s]?'];
+  $units_mass_imperial = ['oz', 'ounce[s]?', 'lb[s]?', 'pound[s]?'];
+  $units_vol_metric = ['ml', 'milliliter[s]?', 'l(iter[s]?)?'];
+  $units_vol_imperial = ['tsp', 'teaspoon[s]?', 'tbsp', 'tablespoon[s]?', 'fl oz', 'fluid ounce[s]?', 'c(up[s]?)?', 'qt', 'quart[s]?', 'pt', 'pint[s]?', 'gal(lon[s]?)?'];
+  $units = array_merge($units_mass_metric, $units_mass_imperial, $units_vol_metric, $units_vol_imperial);
+  $unit_match = '(?P<unit>('.implode($units, "|").')*)';
+  
+  $ingr_match = '(?P<ingredient>\w+((\s|-)?\w)*)';
+  $re = '/^'.$qty_match.'\s?'.$unit_match.'\s?'.$ingr_match.'$/mi';
+  #$re = '/(?P<quantity>\d+(\.|\/)?\d*)\s?(?P<unit>(oz|cup|tsp|g)*)\s?(?P<ingredient>\w+((\s|-)?\w)*)/';
   
   // ingredient: rest of string after space
   $ingredients = $_POST["ingredients"];
   foreach ($ingredients as $ingr) {
     preg_match($re, $ingr, $matches);
-    print_r($matches);
+    echo 'quantity: '.$matches["quantity"]."<br>";
+    echo 'unit: '.$matches["unit"]."<br>";
+    echo 'ingredient: '.$matches["ingredient"]."<br>";
   }
   // insert into recipe_ingredient table
   $instructions = $_POST["instructions"];
@@ -73,7 +92,7 @@ if (isset($_POST["submit"])) {
       </li>
       <li class="form-row">
         <label for="tag">Tags</label>
-        <select name="tag[]" multiple required><?=get_tag_options()?></select>
+        <select name="tag[]" multiple><?=get_tag_options()?></select>
       </li>
       <li class="form-row">
         <label for="ingredients">Ingredients</label>
