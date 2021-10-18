@@ -26,14 +26,31 @@ $select = $fav_view->select(["user_id" => $_SESSION["user"]], "i");
 $favorites_obj = json_decode($select);
 
 if (!$favorites_obj) {
-  echo "You don't have any favorited recipes!" . "<br>";
+  $msg = "<p>You don't have any favorited recipes!";
+  $msg.= " Why don't you check out our ";
+  $msg.= '<a href="'.LINK_WEB.'display/recipes.php">community-sourced recipe list</a> to get started?</p>';
+  echo $msg;
   return; 
 }
 
+// TODO: create separate source file for this functionality
 // display favorites
+$category = null;
 foreach($favorites_obj as $favorite) {
-  $link = '<a href="recipe.php?id=' . $favorite->recipe_id . '" target="_blank">' . $favorite->name . '</a>';
-  echo $link . "<br>";
+  // display each distinct recipe category
+  if ($category != $favorite->category) {
+    // end last category
+    if ($category != null) {
+      echo '</ul></div>';
+    }
+    $category = $favorite->category;
+    echo '<div class="'.$category.'"><h1>'.$category.'</h1><ul>';
+  }
+  echo '<li><a href="'.LINK_WEB.'display/recipe.php?id='.$favorite->recipe_id.'" target="_blank">'.$favorite->name.'</a></li>';
+}
+// at least one recipe displayed
+if (count($favorites_obj)) {
+  echo '</ul></div>';
 }
 
 // footer

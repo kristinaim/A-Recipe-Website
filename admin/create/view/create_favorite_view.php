@@ -16,7 +16,7 @@ JOIN favorite f
 ON rv.recipe_id=f.recipe_id 
 JOIN user u 
 ON u.user_id=f.user_id 
-ORDER BY rv.name";
+ORDER BY rv.category, rv.name";
 
 $db = Database::get_instance();
 $mysqli = $db->get_connection();

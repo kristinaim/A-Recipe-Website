@@ -35,7 +35,7 @@
       // track user info
       $_SESSION["login"] = login($_POST["email"], $_POST["password"]);
       $_SESSION["email"] = $json_obj->email;
-      $_SESSION["name"] = $json_obj->name;
+      $_SESSION["name"] = $json_obj->first_name;
       $_SESSION["user"] = $json_obj->user_id;
       // redirect to home page
       header("Location: ".LINK_WEB."display/home.php");

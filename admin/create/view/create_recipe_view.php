@@ -9,7 +9,7 @@ SELECT r.recipe_id
 FROM recipe r 
 JOIN recipe_category rc
 ON r.recipe_category_id=rc.recipe_category_id
-ORDER BY r.name";
+ORDER BY rc.category, r.name";
 
 $db = Database::get_instance();
 $mysqli = $db->get_connection();

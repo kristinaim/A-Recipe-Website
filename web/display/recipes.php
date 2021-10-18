@@ -18,7 +18,7 @@ ob_start();
 require_once DIR_SRC."header.php";
 $buffer = ob_get_contents();
 ob_end_clean();
-$title = "Home - A Recipe Website";
+$title = "Recipe List - A Recipe Website";
 $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
 echo $buffer;
 
@@ -27,15 +27,26 @@ $recipe_vw = new RecipeView();
 $select = $recipe_vw->select();
 $recipe_obj = json_decode($select);
 
-// get random recipe
-$recipe_rand = array_rand(json_decode($select), 1);
-$recipe_obj = $recipe_obj[$recipe_rand];
+// TODO: create separate source file for this functionality
+// display recipes
+$category = null;
+foreach($recipe_obj as $recipe) {
+  // display each distinct recipe category
+  if ($category != $recipe->category) {
+    // end last category
+    if ($category != null) {
+      echo '</ul></div>';
+    }
+    $category = $recipe->category;
+    echo '<div class="'.$category.'"><h1>'.$category.'</h1><ul>';
+  }
+  echo '<li><a href="'.LINK_WEB.'display/recipe.php?id='.$recipe->recipe_id.'" target="_blank">'.$recipe->name.'</a></li>';
+}
+// at least one recipe displayed
+if (count($recipe_obj)) {
+  echo '</ul></div>';
+}
 
-// display recipe
-$h1 = "<h1>Welcome ".$_SESSION["name"]."!</h1>";
-$h2 = "<h2>Here's a random recipe:</h2>";
-echo $h1.$h2;
-$recipe_vw->display($recipe_obj->recipe_id);
 
 // footer
 require_once DIR_SRC."footer.php";

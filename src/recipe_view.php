@@ -19,14 +19,20 @@ class RecipeView extends View {
     $recipe_instr_vw = new RecipeInstructionView();
 
     // display recipe information
-    echo "Name: " . $recipe_obj->name . "<br>";
-    echo "Serving Size: " . $recipe_obj->serving_size . "<br>";
-    echo "Category: " . $recipe_obj->category . "<br>";
+    echo '<h3>'.$recipe_obj->name.'</h3>';
+    //echo "Name: " . $recipe_obj->name . "<br>";
+    $ul = '<ul>';
+    $ul .= '<li>Serving Size: '.$recipe_obj->serving_size.'</li>';
+    $ul .= '<ll>Category: '.$recipe_obj->category.'</li>';
+    $ul .= '</ul>';
+    echo $ul;
+    //echo "Serving Size: " . $recipe_obj->serving_size . "<br>";
+    //echo "Category: " . $recipe_obj->category . "<br>";
 
-    echo "Ingredients:" . "<br>";
+    //echo "Ingredients:" . "<br>";
     $recipe_ingr_vw->display($id);
 
-    echo "Instructions:" . "<br>";
+    //echo "Instructions:" . "<br>";
     $recipe_instr_vw->display($id);
   }
 }

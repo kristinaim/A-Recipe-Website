@@ -10,10 +10,16 @@ class RecipeIngredientView extends View {
   public function display($id) {
     $select = $this->select(["recipe_id" => $id], "i");
     $recipe_ingr_obj = json_decode($select);
+
+    $html = '<div class="ingredients"><h4>Ingredients</h4><ul>';
     
     foreach($recipe_ingr_obj as $ingr) {
-      echo "- " . $ingr->amount . " " . $ingr->ingredient . "<br>";
+      //echo "- " . $ingr->amount . " " . $ingr->ingredient . "<br>";
+      $html .= '<li>'.$ingr->amount.' '.$ingr->ingredient.'</li>';
     }
+
+    $html .= '</ul></div>';
+    echo $html;
   }
 }
 ?>
