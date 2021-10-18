@@ -12,7 +12,10 @@ $ingredients = '[{"name":"chocolate","amount":"4 oz"},
                  {"name":"vanilla extract","amount":"1/2 tsp"}]';
 $ingr_obj = json_decode($ingredients);
 
+$insert_id = [];
 foreach($ingr_obj as $row) {
-  $ingr_id = $ingredient->insert(["name" => $row->name], "s");
+  $last_id = $ingredient->insert(["name" => $row->name], "s") . "<br>";
+  array_push($insert_id, $last_id);
 }
+echo assert(!array_sum($insert_id));
 ?>

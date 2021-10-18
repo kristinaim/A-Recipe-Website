@@ -19,7 +19,6 @@ ob_end_clean();
 $title = "Submission - A Recipe Website";
 $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
 echo $buffer;
-echo PHP_VERSION;
 
 // when user clicks submit button
 if (isset($_POST["submit"])) {

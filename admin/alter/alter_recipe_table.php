@@ -11,6 +11,6 @@ $mysqli = $db->get_connection();
 if ($mysqli->query($query)) {
   echo "Table `recipe` altered successfully.";
 } else {
-  echo "Error alteringg table `recipe`: " . $mysqli->error;
+  echo "Error altering table `recipe`: " . $mysqli->error;
 }
 ?>

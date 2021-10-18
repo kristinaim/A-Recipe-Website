@@ -3,6 +3,7 @@ require_once __DIR__."/../root.php";
 require_once DIR_SRC."recipe.php";
 require_once DIR_SRC."recipe_category.php";
 require_once DIR_SRC."tag.php";
+require_once DIR_SRC."recipe_tag.php";
 require_once DIR_SRC."ingredient.php";
 require_once DIR_SRC."recipe_ingredient.php";
 require_once DIR_SRC."recipe_instruction.php";
@@ -43,8 +44,7 @@ function submit_recipe() {
                   "serving_size":"'.$_POST["servingSize"].'",
                   "recipe_category_id":"'.$_POST["category"].'"}';
   $recipe_arr = json_decode($recipe_str, true);
-  print_r($recipe_arr);
-  #$recipe_id = $recipe->insert($recipe_arr, "sii");
+  $recipe_id = $recipe->insert($recipe_arr, "sii");
   
   // insert into recipe tag table
   // optional field so check if set
@@ -54,21 +54,39 @@ function submit_recipe() {
       $recipe_tag_str = '{"recipe_id":"'.$recipe_id.'",
                           "tag_id":"'.$tag_id.'"}';
       $recipe_tag_arr = json_decode($recipe_tag_str, true);
-      print_r($recipe_tag_arr);
+      $recipe_tag->insert($recipe_tag_arr, "ii"); 
     }
   }
   
   // insert into ingredient and recipe ingredient table
+  $ingredient = new Ingredient();
+  $recipe_ingredient = new RecipeIngredient();
   foreach ($_POST["ingredients"] as $ingr) {
     preg_match(INGR_REGEX, $ingr, $matches);
-    echo 'quantity: '.$matches["quantity"]."<br>";
-    echo 'unit: '.$matches["unit"]."<br>";
-    echo 'ingredient: '.$matches["ingredient"]."<br>";
+    $ingr_id = $ingredient->select(["name" => $matches["ingredient"]], "s");
+    
+    // ingredient does not exist
+    if (!$ingr_id) {
+      $ingr_id = $ingredient->insert(["name" => $matches["ingredient"]], "s");
+    }
+    
+    $params_arr = ["recipe_id" => $recipe_id,
+                   "ingredient_id" => $ingr_id];
+    $types = "ii";
+
+    // only skip if both match groups are empty
+    if (!(empty($matches["quantity"]) || empty($matches["unit"]))) {
+      $params_arr["amount"] = trim($matches["quantity"]." ".$matches["unit"]);
+      $types .= "s";
+    }
+    
+    $recipe_ingredient->insert($params_arr, $types);
   }
   
   // insert into recipe instruction table
-  foreach ($_POST["instructions"] as $instr) {
-    echo $instr."<br>";
+  $recipe_instruction = new RecipeInstruction();
+  foreach ($_POST["instructions"] as $idx=>$instr) {
+    $recipe_instruction->insert(["recipe_id" => $recipe_id, "step" => $instr, "step_index" => $idx], "isi");
   }
 }
 /*
