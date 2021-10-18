@@ -23,10 +23,24 @@ echo $buffer;
 // when user clicks submit button
 if (isset($_POST["submit"])) {
   // insert into recipe table
+  $recipe_name = $_POST["recipeName"];
+  $serving_size = $_POST["servingSize"];
+  $category = $_POST["category"];
   // insert into recipe tag table
+  $tag = $_POST["tag"];
   // insert into ingredient table
+  $ingredients = $_POST["ingredients"];
   // insert into recipe_ingredient table
+  $instructions = $_POST["instructions"];
   // insert into recipe_instruction table
+  echo 'recipe name: '.$recipe_name."</br>";
+  echo 'serving size: '.$serving_size."</br>";
+  echo 'tag: ';
+  print_r($tag);
+  echo "</br>ingredients:";
+  print_r($ingredients);
+  echo "</br>instructions:";
+  print_r($instructions);
 }
 ?>
 <div class="recipe_sub_container">
@@ -48,17 +62,17 @@ if (isset($_POST["submit"])) {
       </li>
       <li class="form-row">
         <label for="tag">Tags</label>
-        <select name="tag" multiple required><?=get_tag_options()?></select>
+        <select name="tag[]" multiple required><?=get_tag_options()?></select>
       </li>
       <li class="form-row">
         <label for="ingredients">Ingredients</label>
         <input type="text" name="ingredients[]" placeholder="16 oz penne pasta" required>
-        <button id="addIngredient" onclick="insertBefore(addIngredient, ingredients[])">+</button>
+        <input type="button" id="addIngredient" input-name="ingredients[]" value="+" onclick="addInput(this.id)">
       </li>
       <li class="form-row">
         <label for="instructions">Instructions</label>
         <input type="text" name="instructions[]" placeholder="In a medium pot over high heat, bring salted water to a boil..." required>
-        <button id="addInstruction" onclick="insertBefore(addInstruction, instructions[])">+</button>
+        <input type="button" id="addInstruction" input-name="instructions[]" value="+" onclick="addInput(this.id)">
       </li>
       <li class="form-row">
         <input type="submit" name="submit" value="Submit">
@@ -67,12 +81,11 @@ if (isset($_POST["submit"])) {
   </form>
 </div>
 <script>
-function insertBefore(btnId, name) {
+function addInput(btnId) {
   const btn = document.getElementById(btnId);
   const input = document.createElement("input");
   input.setAttribute("type", "text");
-  input.setAttribute("name". name);
-  input.required = true;
+  input.setAttribute("name", btn.getAttribute("input-name"));;
   btn.parentNode.insertBefore(input, btn);
 }
 </script>

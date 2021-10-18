@@ -35,6 +35,13 @@ function get_tag_options() {
   return $html;
 }
 
+// TODO: add functionality to split ingredient entries into their amounts and actual ingredients
+
+// TODO: move 
+if (isset($_POST["submit"])) {
+  echo $_POST["recipeName"].' is for you and me';
+}
+
 /*
 // get recipe category id
 $recipe_category = new RecipeCategory();
