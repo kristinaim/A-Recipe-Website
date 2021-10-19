@@ -22,7 +22,6 @@ echo $buffer;
 
 // when user clicks submit button
 if (isset($_POST["submit"])) {
-  echo INGR_REGEX;
   submit_recipe();
 }
 ?>

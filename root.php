@@ -32,8 +32,8 @@ define("UNITS_MASS_METRIC", ['mg', 'milligram[s]?', 'g(ram[s]?)?', 'kg', 'kilogr
 define("UNITS_MASS_IMPERIAL", ['oz', 'ounce[s]?', 'lb[s]?', 'pound[s]?']);
 define("UNITS_VOL_METRIC", ['ml', 'milliliter[s]?', 'l(iter[s]?)?']);
 define("UNITS_VOL_IMPERIAL", ['tsp', 'teaspoon[s]?', 'tbsp', 'tablespoon[s]?', 'fl oz', 'fluid ounce[s]?', 'c(up[s]?)?', 'qt', 'quart[s]?', 'pt', 'pint[s]?', 'gal(lon[s]?)?']);
-define("QTY_MATCH", '(?P<quantity>\d+(\.|\/)?\d*)?');
-define("UNIT_MATCH", '(?P<unit>('.implode(array_merge(UNITS_MASS_METRIC, UNITS_MASS_IMPERIAL, UNITS_VOL_METRIC, UNITS_VOL_IMPERIAL), "|").')*)?');
+define("QTY_MATCH", '((?P<quantity>\d+[\/\d. ]*|\d)(?=[\s]))?');
+define("UNIT_MATCH", '((?P<unit>('.implode(array_merge(UNITS_MASS_METRIC, UNITS_MASS_IMPERIAL, UNITS_VOL_METRIC, UNITS_VOL_IMPERIAL), "|").')*)(?=[\s]))?');
 define("INGR_MATCH", '(?P<ingredient>\w+((\s|-)?\w)*)');
-define("INGR_REGEX", '/^'.QTY_MATCH.'\s?'.UNIT_MATCH.'\s?'.INGR_MATCH.'$/mi');
+define("INGR_REGEX", '/'.QTY_MATCH.'\s*'.UNIT_MATCH.'\s*'.INGR_MATCH.'/mi');
 ?>
