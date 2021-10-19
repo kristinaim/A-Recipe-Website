@@ -34,10 +34,20 @@ function toggleStar(currentValue, starElement, recipeElement) {
   xhttp.send();
 }
 
+function isFavorite(action, recipe_id, callback) {
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("POST", action);
+  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhttp.onload = function() {
+    callback(parseInt(this.responseText));
+  }
+  xhttp.send("function=is_favorite&recipe_id="+recipe_id);
+}
+
 function onRecipeLoad() {
   const recipeTitle = document.getElementById("recipeTitle");
   const favoriteStar = document.getElementById("favoriteStar");
-  const xhttp = new XMLHttpRequest();
+
   let favorited;
 
   // exit if neither exist
@@ -47,13 +57,11 @@ function onRecipeLoad() {
 
   // TODO: change to async!!!
   // https://stackoverflow.com/a/16825593
-  xhttp.open("POST", favoriteStar.getAttribute("action"), false);
-  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  xhttp.onload = function() {
-    favorited = parseInt(this.responseText);
-  }
-  xhttp.send("function=is_favorite&recipe_id="+recipeTitle.getAttribute("recipe-id"));
-  favoriteStar.innerHTML = (favorited==true) ? starOn : starOff;
+  isFavorite((favoriteStar.getAttribute("action"),
+              recipeTitle.getAttribute("recipe-id"),
+              favorited) => {
+    favoriteStar.innerHTML = (favorited==true) ? starOn : starOff;
+  });
 
   favoriteStar.addEventListener("click", (event) => {
     toggleStar(event.target.innerHTML, favoriteStar, recipeTitle);
