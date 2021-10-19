@@ -51,11 +51,15 @@ class Entry implements Selectable, Insertable, Updatable, Removable {
     return $this->insert_id();
   }
 
-  public function update($params, $types) {
+  // $where is an associative array of length 1
+  public function update($params, $where, $types) {
     $fields = implode(array_map(function ($elem) { return $elem . "=?"; },
                       array_keys($params)), ", ");
-    $query = "UPDATE $this->table SET " . $fields . " WHERE id=?";
-    return $query;
+    $query = "UPDATE $this->table SET ".$fields." WHERE ".array_keys($where)[0]."=?";
+    $stmt = $this->database->get_connection()->prepare($query);
+    $stmt->bind_param($types, ...array_merge(array_values($params), array_values($where)));
+    $stmt->execute();
+    return $stmt->affected_rows;
   }
 
   public function remove($params=null, $types=null) {
