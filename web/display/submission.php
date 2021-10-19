@@ -22,57 +22,8 @@ echo $buffer;
 
 // when user clicks submit button
 if (isset($_POST["submit"])) {
+  echo INGR_REGEX;
   submit_recipe();
-  /*
-  // insert into recipe table
-  $recipe_name = $_POST["recipeName"];
-  $serving_size = $_POST["servingSize"];
-  $category = $_POST["category"];
-  
-  // insert into recipe tag table
-  // optional so check if set
-  if (isset($_POST["tag"])) {
-    foreach ($_POST["tag"] as $tag) {
-      echo $tag;
-    }
-  }
-  
-  // insert into ingredient table
-  // valid ingredient has the following format:
-  // <quantity>\s?<unit>? <ingredient>
-  // quantity: decimal, whole number, or fraction
-  // unit:
-  $qty_match = '(?P<quantity>\d+(\.|\/)?\d*)';
-  
-  $units_mass_metric = ['mg', 'milligram[s]?', 'g(ram[s]?)?', 'kg', 'kilogram[s]?'];
-  $units_mass_imperial = ['oz', 'ounce[s]?', 'lb[s]?', 'pound[s]?'];
-  $units_vol_metric = ['ml', 'milliliter[s]?', 'l(iter[s]?)?'];
-  $units_vol_imperial = ['tsp', 'teaspoon[s]?', 'tbsp', 'tablespoon[s]?', 'fl oz', 'fluid ounce[s]?', 'c(up[s]?)?', 'qt', 'quart[s]?', 'pt', 'pint[s]?', 'gal(lon[s]?)?'];
-  $units = array_merge($units_mass_metric, $units_mass_imperial, $units_vol_metric, $units_vol_imperial);
-  $unit_match = '(?P<unit>('.implode($units, "|").')*)';
-  
-  $ingr_match = '(?P<ingredient>\w+((\s|-)?\w)*)';
-  $re = '/^'.$qty_match.'\s?'.$unit_match.'\s?'.$ingr_match.'$/mi';
-  #$re = '/(?P<quantity>\d+(\.|\/)?\d*)\s?(?P<unit>(oz|cup|tsp|g)*)\s?(?P<ingredient>\w+((\s|-)?\w)*)/';
-  // ingredient: rest of string after space
-  $ingredients = $_POST["ingredients"];
-  foreach ($ingredients as $ingr) {
-    preg_match($re, $ingr, $matches);
-    echo 'quantity: '.$matches["quantity"]."<br>";
-    echo 'unit: '.$matches["unit"]."<br>";
-    echo 'ingredient: '.$matches["ingredient"]."<br>";
-  }
-  // insert into recipe_ingredient table
-  $instructions = $_POST["instructions"];
-  // insert into recipe_instruction table
-  echo 'recipe name: '.$recipe_name."</br>";
-  echo 'serving size: '.$serving_size."</br>";
-  echo 'tag: ';
-  print_r($tag);
-  echo "</br>ingredients:";
-  print_r($ingredients);
-  echo "</br>instructions:";
-  print_r($instructions);*/
 }
 ?>
 <div class="recipe_sub_container">
