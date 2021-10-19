@@ -199,6 +199,13 @@ hr {
   	text-decoration: none;
 }
 
+a:link#favoriteStar,
+a:visited#favoriteStar{
+  font-size: 32px;
+  color: gold;
+  text-decoration: none;
+}
+
 #recipe_sub_form {
 	font-family: Times New Roman;
 	text-align: center; 

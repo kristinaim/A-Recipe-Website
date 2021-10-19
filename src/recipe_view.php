@@ -21,7 +21,8 @@ class RecipeView extends View {
     $recipe_instr_vw = new RecipeInstructionView();
 
     // display recipe information
-    echo '<h3>'.$recipe_obj->name.'</h3>';
+    echo '<h3 id="recipeTitle" recipe-id="'.$recipe_obj->recipe_id.'">'.$recipe_obj->name.'</h3>';
+    echo '<a id="favoriteStar" href="#" action="'.LINK_SRC.'user_favorite.php" fav="0">&#9734</a>';
     $recipe_tag_vw->display($id);
     
     $ul = '<ul>';
