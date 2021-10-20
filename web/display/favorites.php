@@ -26,7 +26,7 @@ $select = $fav_view->select(["user_id" => $_SESSION["user"]], "i");
 $favorites_obj = json_decode($select);
 
 if (!$favorites_obj) {
-  $msg = "<p>You don't have any favorited recipes!";
+  $msg = "<p id = "favorerror">You don't have any favorited recipes!";
   $msg.= " Why don't you check out our ";
   $msg.= '<a href="'.LINK_WEB.'display/recipes.php">community-sourced recipe list</a> to get started?</p>';
   echo $msg;
@@ -44,9 +44,9 @@ foreach($favorites_obj as $favorite) {
       echo '</ul></div>';
     }
     $category = $favorite->category;
-    echo '<div class="'.$category.'"><h1>'.$category.'</h1><ul>';
+    echo '<div class="'.$category.'"><p id = "homelanding">'.$category.'</p><ul>';
   }
-  echo '<li><a href="'.LINK_WEB.'display/recipe.php?id='.$favorite->recipe_id.'" target="_blank">'.$favorite->name.'</a></li>';
+  echo '<li><p id = "homerecipe"><a href="'.LINK_WEB.'display/recipe.php?id='.$favorite->recipe_id.'" target="_blank">'.$favorite->name.'</a></p></li>';
 }
 // at least one recipe displayed
 if (count($favorites_obj)) {
