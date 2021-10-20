@@ -15,7 +15,7 @@ class RecipeIngredientView extends View {
     
     foreach($recipe_ingr_obj as $ingr) {
       //echo "- " . $ingr->amount . " " . $ingr->ingredient . "<br>";
-      $html .= '<li><input type = "checkbox" id = "ingredients">'.$ingr->amount.' '.$ingr->ingredient.'</li>';
+      $html .= '<li><input type = "checkbox" id = "ingredients">'.$ingr->amount.' '.$ingr->ingredient.'</li><br/>';
     }
 
     $html .= '</ul></div>';
