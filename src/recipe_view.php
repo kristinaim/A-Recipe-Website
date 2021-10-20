@@ -21,13 +21,13 @@ class RecipeView extends View {
     $recipe_instr_vw = new RecipeInstructionView();
 
     // display recipe information
-    echo '<h3 id="recipeTitle" recipe-id="'.$recipe_obj->recipe_id.'">'.$recipe_obj->name.'</h3>';
+    echo '<h1 id="recipeTitle" recipe-id="'.$recipe_obj->recipe_id.'">'.$recipe_obj->name.'</h1>';
     echo '<a id="favoriteStar" href="#" action="'.LINK_SRC.'user_favorite.php" fav="0">&#9734</a>';
     $recipe_tag_vw->display($id);
     
     $ul = '<ul>';
-    $ul .= '<li>Serving Size: '.$recipe_obj->serving_size.'</li>';
-    $ul .= '<ll>Category: '.$recipe_obj->category.'</li>';
+    $ul .= '<li><p id = "serving">Serving Size: '.$recipe_obj->serving_size.'</p></li>';
+    $ul .= '<ll><p id = "serving">Category: '.$recipe_obj->category.'</p></li>';
     $ul .= '</ul>';
     echo $ul;
 
