@@ -11,11 +11,11 @@ class RecipeIngredientView extends View {
     $select = $this->select(["recipe_id" => $id], "i");
     $recipe_ingr_obj = json_decode($select);
 
-    $html = '<div class="ingredients"><h4>Ingredients</h4><ul>';
+    $html = '<div class="ingredients"><p id = "ing">Ingredients</p><ul>';
     
     foreach($recipe_ingr_obj as $ingr) {
       //echo "- " . $ingr->amount . " " . $ingr->ingredient . "<br>";
-      $html .= '<li>'.$ingr->amount.' '.$ingr->ingredient.'</li>';
+      $html .= '<li><input type = "checkbox" id = "ingredients">'.$ingr->amount.' '.$ingr->ingredient.'</li>';
     }
 
     $html .= '</ul></div>';
