@@ -30,7 +30,7 @@ $keyword = $_SESSION['keyword']; //from search bar form
 #$display_query = "SELECT * FROM recipe WHERE name LIKE '%$keyword%'";
 // get all recipes
 $recipe_vw = new RecipeView();
-$select = $recipe_vw->select_where(["name" => $keyword], "s");
+$select = $recipe_vw->select_search(["name" => "%".$keyword."%"], "s");
 $recipe_obj = json_decode($select);
 
 // Run the search query
@@ -52,17 +52,16 @@ $recipe_obj = json_decode($select);
                         font-weight: bold;
                     }
                 </style>
-                <li class = "result">Recipe 1</li>
-                <li class = "result">Recipe 2</li>
+                <!--li class = "result">Recipe 1</li-->
+                <!--li class = "result">Recipe 2</li-->
                 </ul>
                 
                 <?php
                 // Display database information if search returns a result
                 if (!empty($recipe_obj)) {
-                    foreach ($row as $recipe) {
+                    foreach ($recipe_obj as $recipe) {
                     echo '<ul>';
-                    echo '<li class = "result"> '.$recipe->name.'</li>';
-                    echo '<p><b> Link: </b> '.LINK_WEB.'display/recipe.php?id='.$recipe->recipe_id.'</p>'; // Link to recipe?
+                    echo '<li class = "result"><a href="'.LINK_WEB.'display/recipe.php?id='.$recipe->recipe_id.'">'.$recipe->name.'</li>'; // Link to recipe?
                     echo '</ul>';
                     }
 
@@ -78,4 +77,4 @@ $recipe_obj = json_decode($select);
         </div>
     </main>
 
-<?php include 'footer.php';?>
+<?php require_once DIR_SRC."footer.php"; ?>

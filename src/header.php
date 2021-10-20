@@ -5,8 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?=LINK_CSS?>styles.css" type="text/css">
-<script src="<?=LINK_JS?>scripts-main.js"></script>
+  <script src="<?=LINK_JS?>scripts-main.js"></script>
   <title>A Recipe Website</title>
 </head>
 <body onload="onRecipeLoad()">
@@ -36,7 +37,7 @@
     </div>
     <div class ="search_container">
     <div class ="search_bar">
-      <form action="header.php" method="POST">
+    <form action="<?=LINK_SRC?>header.php" method="POST">
         <input type="text" placeholder="Search for 'veggie lasagna'" name="keyword">
         <button type="submit" name = search>
           <i class="fa fa-search" style="font-size:18px; color:black;"></i>
@@ -97,8 +98,8 @@ if (isset($_POST["search"])) {
   $_SESSION['keyword'] = $keyword;
 
     //Display search result
-  header("Location: ".DIR_WEB."display/search_results.php"); 
-  
+  header("Location: ".LINK_WEB."display/search_results.php"); 
+ 
 }  
  //End of main isset conditional
 

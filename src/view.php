@@ -14,10 +14,10 @@ abstract class View implements Selectable {
     $this->database = Database::get_instance();
   }
 
-  public function select_search($where, $type) {
-    $query = "SELECT * FROM $this->view WHERE array_keys($where)[0] LIKE '%array_values($where)[0]%'";
+  public function select_search($where, $types) {
+    $query = "SELECT * FROM $this->view WHERE ".array_keys($where)[0]." LIKE ?";
     $stmt = $this->database->get_connection()->prepare($query);
-    $stmt->bind_param($types, ...array_values($where));
+    $stmt->bind_param($types, array_values($where)[0]);
     $stmt->execute();
     $result = $stmt->get_result();
     $rows = $result->fetch_all(MYSQLI_ASSOC);

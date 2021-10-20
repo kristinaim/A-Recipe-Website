@@ -30,7 +30,7 @@ function get_tag_options() {
   $html = "";
   
   foreach($tags as $t) {
-    $html .= '<option value="'.$t->tag_id.'">'.$t->descr_short.'</option>';
+    $html .= '<option value="'.$t->tag_id.'">'.$t->descr.'</option>';
   }
 
   return $html;
