@@ -48,10 +48,22 @@
       }
     }
     ?>
-    <form method="POST" action="login.php">
-      <input type="email" name="email" id="loginEmail" placeholder="Email" required>
-      <input type="password" name="password" id="loginPassword" placeholder="Password" required">
-      <a href="signup.php">Don't have an account?</a>
-      <input type="submit" name="submit" value="Submit">
-    </form>
+    <main>
+      <div class="signin_container">
+        <p id="signin">Sign into your account</p>
+        <div id="signinfo">
+          <a href="signup.php">Need an account? <b>Create one.</b></a>
+        </div>
+        <div class="rectangle">
+          <form method="POST" action="login.php">
+            <label id="signID" for="email">E-mail</label>
+            <input type="email" name="email" id="id" placeholder="Your e-mail address" required>
+            <label id="signID" for="password">Password</label>
+            <input type="password" name="password" id="id" placeholder="Your password" required>
+            <!--$input id="signBtn" type="submit" name="submit" value="SIGN IN"-->
+            <button id="signBtn" type="submit" name="submit">SIGN IN</button>
+          </form>
+        </div>
+      </div>
+    </main>
 <?php require_once(DIR_SRC."footer.php"); ?>
