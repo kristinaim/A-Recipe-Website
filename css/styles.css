@@ -179,22 +179,26 @@ hr {
 	width: 90%;
 }
 
-.head a:link {
+.head a:link,
+.footer a:link {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-.head a:visited {
+.head a:visited,
+.footer a:visited {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-.head a:active {
+.head a:active,
+.footer a:active {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-.head a:hover {
+.head a:hover,
+.footer a:hover {
   	color: #ffffff;
   	text-decoration: none;
 }

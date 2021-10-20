@@ -1,9 +1,7 @@
     <footer>
       <div class="footer">
         <ul>
-          <li>Phone: 123 456 7890</li>
-          <li>Fax: 555 555 1234</li>
-          <li>Email: email@email.com</li>
+          <li>Contact us for more info at <b><a href="mailto:contact@homemade.com">contact@homemade.com</a></b></li>
         </ul>
       </div>
     </footer>

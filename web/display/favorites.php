@@ -16,7 +16,7 @@ ob_start();
 require_once DIR_SRC."header.php";
 $buffer = ob_get_contents();
 ob_end_clean();
-$title = $_SESSION["name"]."'s Favorites - A Recipe Website";
+$title = $_SESSION["name"]."'s Favorites - Homemade";
 $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $buffer);
 echo $buffer;
 
