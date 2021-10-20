@@ -26,7 +26,7 @@ $select = $fav_view->select(["user_id" => $_SESSION["user"]], "i");
 $favorites_obj = json_decode($select);
 
 if (!$favorites_obj) {
-  $msg = "<p id = "favorerror">You don't have any favorited recipes!";
+  $msg = '<p id = "favorerror">You don\'t have any favorited recipes!';
   $msg.= " Why don't you check out our ";
   $msg.= '<a href="'.LINK_WEB.'display/recipes.php">community-sourced recipe list</a> to get started?</p>';
   echo $msg;

@@ -221,12 +221,13 @@ div.recipe_sub_container {
 	font-family: Avenir;
 	font-size: 14px;
 	display: block;
-  	flex; width: 70%; 
-  	height: auto; 
-  	margin: auto;
-  	background-color: #ffffff; 
-  	padding-top: 30px;
-  	padding-bottom: 100px;
+  /*flex;*/
+  width: 70%; 
+  height: auto; 
+  margin: auto;
+  background-color: #ffffff; 
+  padding-top: 30px;
+  padding-bottom: 100px;
 }
 
 #form-text {
