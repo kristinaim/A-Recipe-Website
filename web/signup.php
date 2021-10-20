@@ -44,11 +44,12 @@
     ?>
     <p id = "signup1">Sign up for an account</p>
     <form method="POST" action="signup.php">
-      <p id = "signID">Email</p><input id = "id" type="email" name="email" placeholder="Email" required>
-      <p id = "signID">First name</p><input id = "id" type="text" name="firstName" placeholder="First name" required>
-      <p id = "signID">Last name</p><input id = "id" type="text" name="lastName" placeholder="Last name" required>
-      <p id = "signID">Password</p><input id = "id" type="password" name="password" placeholder="Password" required>
-      <p id = "signID">Confirm password</p><input id = "id" type="password" name="confirmPassword" placeholder="Confirm password" required>
-      <button id = "signupsubmit">SIGN UP<input type="submit" name="submit" value="Submit"></button>
+      <p id = "signID">Email</p><input id = "id" type="email" name="email" placeholder="bbronco@scu.edu" required>
+      <p id = "signID">First name</p><input id = "id" type="text" name="firstName" placeholder="Bucky" required>
+      <p id = "signID">Last name</p><input id = "id" type="text" name="lastName" placeholder="Bronco" required>
+      <p id = "signID">Password</p><input id = "id" type="password" name="password" placeholder="ScoCos1851!" required>
+      <p id = "signID">Confirm password</p><input id = "id" type="password" name="confirmPassword" placeholder="ScoCos1851!" required>
+      <button id = "signupsubmit" name="submit">SIGN UP</button>
+      <!--input type="submit" name="submit" value="Submit"-->
     </form>
 <?php require_once DIR_SRC."footer.php"; ?>
