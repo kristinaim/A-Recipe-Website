@@ -8,19 +8,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?=LINK_CSS?>styles.css" type="text/css">
   <script src="<?=LINK_JS?>scripts-main.js"></script>
-  <title>A Recipe Website</title>
+  <!--title>A Recipe Website</title-->
+  <title>Homemade</title>
 </head>
 <body onload="onRecipeLoad()">
   <header>
     <div class="img">
+      <a href="<?=LINK_WEB?>display/home.php">
+        <img src="<?=LINK_IMG?>homemade.png" id="homemade"/>
+      </a>
     </div>
     <div class="head">
       <ul id="head_list">
-        <li>
-          <a href="<?=LINK_WEB?>display/home.php">
-            <img src="<?=LINK_IMG?>homemade.png" id="homemade"/>
-          </a>
-        </li>
         <li>
           <a href="<?=LINK_WEB?>display/recipes.php">Recipes</a>
         </li>
