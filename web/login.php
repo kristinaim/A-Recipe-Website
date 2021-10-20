@@ -46,17 +46,15 @@ if (isset($_POST["submit"])) {
 <main>
   <div class="signin_container">
     <p id="signin">Sign into your account</p>
-    <div id="signinfo">
-      <a href="signup.php">Need an account? <b>Create one.</b></a>
-    </div>
+      <p id="signinfo"><a href="signup.php">Need an account? <b>Create one.</b></a></p>
     <div class="rectangle">
       <form method="POST" action="login.php">
-        <label id="signID" for="email">E-mail</label>
+        <p id="signID" for="email">E-mail</p>
         <input type="email" name="email" id="id" placeholder="Your e-mail address" required>
-        <label id="signID" for="password">Password</label>
+        <p id="signID" for="password">Password</p>
         <input type="password" name="password" id="id" placeholder="Your password" required>
         <!--$input id="signBtn" type="submit" name="submit" value="SIGN IN"-->
-        <button id="signBtn" type="submit" name="submit">SIGN IN</button>
+        <button id="signsubmit" type="submit" name="submit">SIGN IN</button>
       </form>
     </div>
   </div>
