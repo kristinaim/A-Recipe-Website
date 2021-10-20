@@ -185,8 +185,8 @@ hr {
   	text-decoration: none;
 }
 
-.head a:link,
-.footer a:link {
+.head a:visited,
+.footer a:visited {
   	color: #ffffff;
   	text-decoration: none;
 }
