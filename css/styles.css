@@ -122,7 +122,7 @@ div.checkboxes {
 }
 
 div.recipe_container {
-	padding-top: 40px;
+	padding-top: 80px;
 }
 
 div.title_container {
@@ -179,35 +179,24 @@ hr {
 	width: 90%;
 }
 
-.head a:link,
-.footer a:link {
+a:link {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-.head a:visited,
-.footer a:visited {
+a:visited {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-.head a:active,
-.footer a:active {
+a:active {
   	color: #ffffff;
   	text-decoration: none;
 }
 
-.head a:hover,
-.footer a:hover {
+a:hover {
   	color: #ffffff;
   	text-decoration: none;
-}
-
-a:link#favoriteStar,
-a:visited#favoriteStar{
-  font-size: 32px;
-  color: gold;
-  text-decoration: none;
 }
 
 #recipe_sub_form {
@@ -215,6 +204,7 @@ a:visited#favoriteStar{
 	text-align: center; 
 	font-weight: bold; 
 	font-size: 30px;
+	padding-top: 70px;
 }
 
 div.recipe_sub_container {
@@ -321,6 +311,15 @@ p#signin {
 	margin-right: auto;
 }
 
+.rectangle_signup {
+	height: 500px;
+	width: 450px;
+	background-color: #ededed;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #id {
 	margin-top: 5px;
 	width: 350px;
@@ -342,8 +341,6 @@ p#signin {
 	text-align: center;
 }
 
-
-
 button {
 	width: 80%;
   	height: 40px;
@@ -354,4 +351,128 @@ button {
   	display: block;
   	margin-left: auto;
 	margin-right: auto;
+}
+
+.search_container{
+    padding-top: 20px;
+}
+
+.search_bar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+   
+input[type=text]{
+    display: inline-block;
+    font-size: 15px;
+    margin-right: 0;
+    width: 70%;
+    height:35px;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+button#search {
+    display: inline-block;
+    background: #ddd;
+    margin-left: 0;
+    border: none;
+    cursor: pointer;
+    width: 20%
+}
+
+button#search:hover {
+    background: #ccc;
+}
+
+p#app {
+	font-family: Avenir;
+	font-size: 15px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+p#homelanding {
+	padding-left: 100px;
+	padding-top: 100px;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+p#randomrecipe {
+	font-family: Avenir;
+	font-size: 20px;
+	padding-left: 100px;
+	padding-top: 10px;
+}
+
+p#homerecipe {
+	font-family: Avenir;
+	font-size: 16px;
+	padding-left: 100px;
+	padding-top: 10px;
+}
+
+p#faverror {
+	font-family: Avenir;
+	text-align: center;
+	padding-top: 100px;
+	font-size: 16px;
+}
+
+a#faverror1:link {
+  	color: #000000;
+  	text-decoration: none;
+} 
+
+a#faverror1:visited {
+  	color: #000000;
+  	text-decoration: none;
+}
+
+a#faverror1:active {
+  	color: #000000;
+  	text-decoration: none;
+}
+
+a#faverror1:hover {
+  	color: #000000;
+  	font-weight: bold;
+  	text-decoration: none;
+}
+
+p#signup1 {
+	font-family: Avenir;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 30px;
+}
+
+button#signupsubmit {
+	margin-top: 40px;
+}
+
+p#serving {
+	text-align: center;
+	font-size: 14px;
+	font-family: Avenir;
+}
+
+li.form-category {
+	display: flex;
+}
+
+#category_container {
+	margin-left: 10px;
 }
