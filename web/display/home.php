@@ -32,10 +32,10 @@ $recipe_rand = array_rand(json_decode($select), 1);
 $recipe_obj = $recipe_obj[$recipe_rand];
 
 // display recipe
-$h1 = "<p id = "homelanding">Welcome ".$_SESSION["name"]."!</p>";
-$h2 = "<p id = "randomrecipe">Here's a random recipe:</p>";
+$h1 = '<p id="homelanding">Welcome '.$_SESSION["name"].'!</p>';
+$h2 = '<p id="randomrecipe">Here\'s a random recipe:</p>';
 echo $h1.$h2;
-'<p id = "homerecipe">'$recipe_vw->display($recipe_obj->recipe_id)'</p>';
+'<p id="homerecipe">'.$recipe_vw->display($recipe_obj->recipe_id).'</p>';
 
 // footer
 require_once DIR_SRC."footer.php";
