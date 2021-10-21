@@ -31,7 +31,9 @@ class RecipeView extends View {
     $ul .= '</ul>';
     echo $ul;
 
+    echo '<hr/>';
     $recipe_ingr_vw->display($id);
+    echo '<hr/>';
     $recipe_instr_vw->display($id);
   }
 }
